@@ -5,11 +5,15 @@
 // endbower
 
 @import "common/global";
+@import "common/typography";
+
 @import "components/buttons";
 @import "components/comments";
 @import "components/forms";
 @import "components/grid";
+@import "components/media";
 @import "components/wp-classes";
+
 @import "layouts/header";
 @import "layouts/sidebar";
 @import "layouts/footer";
