@@ -53,16 +53,6 @@
 				</Grid>
 				<Rectangle Height="1" Margin="0,5,0,0" Fill="#333c48" />
 			</StackPanel>
-
-			<!-- This is the main scroll area -->
-			<!--<ScrollView>
-				<StackPanel Alignment="Top">
-					<Panel Height="7" />
-					<Each Items="{data.responseData}">
-						<NewsItem />
-					</Each>
-				</StackPanel>
-			</ScrollView>-->
 		</DockPanel>
 	</EdgeNavigator>
 </App>
