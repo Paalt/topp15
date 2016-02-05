@@ -1,7 +1,7 @@
 <App Theme="Basic">
 	<EdgeNavigator ux:Name="EdgeNavigator">
 		<!-- Add a panel to the left edge -->
-		<Sidebar Width="330" ux:Name="menu" EdgeNavigation.Edge="Left">
+		<Sidebar Width="87%" ux:Name="menu" EdgeNavigation.Edge="Left">
 			<ActivatingAnimation>
 				<Change mainAppTranslation.X="0" />
 			</ActivatingAnimation>
@@ -16,9 +16,9 @@
 
 			<StackPanel Dock="Top">
 
-				<!-- This is the top ledge -->
+				<!-- Start of Top/Side menu -->
 				<Grid ColumnData="auto,1*,auto"  Background="White">
-					<Panel Margin="7,5,5,5" Height="32" Width="32" HitTestMode="LocalBounds">
+					<Panel Margin="7,5,5,5" Height="50" Width="32" HitTestMode="LocalBounds">
 						<Clicked>
 							<Set EdgeNavigator.Active="menu" />
 						</Clicked>
@@ -34,7 +34,7 @@
 					</Panel>
 
 					<Text FontSize="22" Alignment="VerticalCenter" TextAlignment="Center"
-						Value="NEWS" Padding="2">
+						Value="Topp 15" Padding="2">
 						<Font File="assets/fonts/AlegreyaSans-Bold.otf" />
 					</Text>
 
@@ -52,7 +52,20 @@
 					</Panel>
 				</Grid>
 				<Rectangle Height="1" Margin="0,5,0,0" Fill="#333c48" />
+				<!-- End of Top/Side menu -->
 			</StackPanel>
+			<PageControl ux:Name="navigation" Height="175" Dock="Top">
+            	<Text ux:Class="WelcomeText" FontSize="30" Alignment="Center"/>
+            	<Page ux:Name="page1" Background="#eee">
+                	<WelcomeText>Welcome to Page 1</WelcomeText>
+            	</Page>
+            	<Page ux:Name="page2" Background="#abb7b7">
+                	<WelcomeText>Welcome to Page 2</WelcomeText>
+            	</Page>
+            	<Page ux:Name="page3" Background="#f2f1ef">
+                	<WelcomeText>Welcome to Page 3</WelcomeText>
+            	</Page>
+        	</PageControl>
 		</DockPanel>
 	</EdgeNavigator>
 </App>
