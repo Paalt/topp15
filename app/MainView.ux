@@ -66,6 +66,16 @@
                 	<WelcomeText>Welcome to Page 3</WelcomeText>
             	</Page>
         	</PageControl>
+        	<ScrollView>
+        		<Grid RowCount="3" ColumnCount="2">
+        			<Rectangle Row="0" Column="1" Fill="Red" Width="100%" Height="200" />
+        			<Rectangle Row="0" Column="0" Fill="Blue" Width="100%" Height="200" />
+        			<Rectangle Row="1" Column="0" Fill="Green" Width="100%" Height="200" />
+        			<Rectangle Row="1" Column="1" Fill="Yellow" Width="100%" Height="200" />
+        			<Rectangle Row="2" Column="1" Fill="Black" Width="100%" Height="200" />
+        			<Rectangle Row="2" Column="0" Fill="Purple" Width="100%" Height="200" />
+        		</Grid>
+        	</ScrollView>
 		</DockPanel>
 	</EdgeNavigator>
 </App>
