@@ -1,2 +1,5 @@
 /app/.uno/
 /app/build/
+/app/.build/
+/app/.cache
+*.org
