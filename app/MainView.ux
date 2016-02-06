@@ -14,9 +14,8 @@
 			<StatusBarBackground Dock="Top" />
 			<BottomFrameBackground Dock="Bottom" />
 
+			<!-- Start of Top/Side menu -->
 			<StackPanel Dock="Top">
-
-				<!-- Start of Top/Side menu -->
 				<Grid ColumnData="auto,1*,auto"  Background="White">
 					<Panel Margin="7,5,5,5" Height="50" Width="32" HitTestMode="LocalBounds">
 						<Clicked>
@@ -52,30 +51,36 @@
 					</Panel>
 				</Grid>
 				<Rectangle Height="1" Margin="0,5,0,0" Fill="#333c48" />
-				<!-- End of Top/Side menu -->
 			</StackPanel>
+			<!-- End of Top/Side menu -->
+
+			<!-- Start of MB -->
 			<PageControl ux:Name="navigation" Height="175" Dock="Top">
-            	<Text ux:Class="WelcomeText" FontSize="30" Alignment="Center"/>
-            	<Page ux:Name="page1" Background="#eee">
-                	<WelcomeText>Welcome to Page 1</WelcomeText>
-            	</Page>
-            	<Page ux:Name="page2" Background="#abb7b7">
-                	<WelcomeText>Welcome to Page 2</WelcomeText>
-            	</Page>
-            	<Page ux:Name="page3" Background="#f2f1ef">
-                	<WelcomeText>Welcome to Page 3</WelcomeText>
-            	</Page>
-        	</PageControl>
-        	<ScrollView>
-        		<Grid RowCount="3" ColumnCount="2">
-        			<Rectangle Row="0" Column="1" Fill="Red" Width="100%" Height="200" />
-        			<Rectangle Row="0" Column="0" Fill="Blue" Width="100%" Height="200" />
-        			<Rectangle Row="1" Column="0" Fill="Green" Width="100%" Height="200" />
-        			<Rectangle Row="1" Column="1" Fill="Yellow" Width="100%" Height="200" />
-        			<Rectangle Row="2" Column="1" Fill="Black" Width="100%" Height="200" />
-        			<Rectangle Row="2" Column="0" Fill="Purple" Width="100%" Height="200" />
-        		</Grid>
-        	</ScrollView>
+           		<Text ux:Class="WelcomeText" FontSize="30" Alignment="Center"/>
+           		<Page ux:Name="page1" Background="#eee">
+               		<WelcomeText>Welcome to Page 1</WelcomeText>
+           		</Page>
+           		<Page ux:Name="page2" Background="#abb7b7">
+               		<WelcomeText>Welcome to Page 2</WelcomeText>
+           		</Page>
+           		<Page ux:Name="page3" Background="#f2f1ef">
+               		<WelcomeText>Welcome to Page 3</WelcomeText>
+           		</Page>
+       		</PageControl>
+       		<ScrollView>
+       			<Grid RowCount="3" ColumnCount="3">
+       				<Rectangle Row="0" Column="1" Fill="Red" Width="100%" Height="175" />
+       				<Rectangle Row="0" Column="0" Fill="Blue" Width="100%" Height="175" />
+       				<Rectangle Row="0" Column="2" Fill="Purple" Width="100%" Height="175" />
+       				<Rectangle Row="1" Column="0" Fill="Green" Width="100%" Height="175" />
+       				<Rectangle Row="1" Column="1" Fill="Yellow" Width="100%" Height="175" />
+       				<Rectangle Row="1" Column="2" Fill="Red" Width="100%" Height="175" />
+       				<Rectangle Row="2" Column="1" Fill="Black" Width="100%" Height="175" />
+       				<Rectangle Row="2" Column="0" Fill="Purple" Width="100%" Height="175" />
+       				<Rectangle Row="2" Column="2" Fill="Blue" Width="100%" Height="175" />
+       			</Grid>
+       		</ScrollView>
+        	<!-- End of MB -->
 		</DockPanel>
 	</EdgeNavigator>
 </App>

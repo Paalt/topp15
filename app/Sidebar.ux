@@ -16,8 +16,8 @@
 	<StackPanel>
 		<Panel Height="50" />
 		<StackPanel ux:Name="browser">
-			<SidebarIcon File="assets/mb.jpg" />
-			<MenuLabel>MÅNEDENS BESTSELGERE</MenuLabel>
+				<SidebarIcon File="assets/mb.jpg" />
+				<MenuLabel>MÅNEDENS BESTSELGERE</MenuLabel>
 		</StackPanel>
 		<StackPanel ux:Name="feed">
 			<SidebarIcon File="assets/icon/Feed.png" />
