@@ -26,12 +26,13 @@
 		<StackPanel ux:Name="chat">
 			<SidebarIcon File="assets/icon/Chat.png" />
 			<MenuLabel>BARNEBØKER</MenuLabel>
-			<Button Text="WOLOLOLOLO">
+			<!-- <Button Text="WOLOLOLOLO">
 				<Clicked>
 					<DebugAction Message="WOLOLO" />
-					<!-- <Set navigation.Active="page1" /> -->
+					<Set navigation.Active="page1" />
 				</Clicked>
-			</Button>
+			</Button> -->
 		</StackPanel>
 	</StackPanel>
 </StackPanel>
+<!--  -->
