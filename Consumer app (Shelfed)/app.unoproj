@@ -15,7 +15,6 @@
         "Fuse.Navigation",
         "Fuse.Shapes",
         "Fuse.Triggers",
-        "Fuse.Scripting",
         "Fuse.Reactive",
         "Fuse.Android",
         "Fuse.Desktop",
