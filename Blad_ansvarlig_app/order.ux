@@ -1,0 +1,120 @@
+<Style>
+    <ScrollView Margin="0,30,0,0" ux:Class="Order">
+        <Grid RowCount="6" ColumnCount="1">
+            <Rectangle Row="0" Fill="Red" Width="100%" Height="200">
+                <StackPanel>
+                    <Text Alignment="Center" Value="Boktitel" TextColor="#fff" FontSize="22" Margin="0,10,0,0"/>
+                    <Rectangle Width="100" Height="50" Margin="0,10,0,0" Fill="Blue">
+                        <Stroke Width="1">
+                            <SolidColor Color="#000" />
+                        </Stroke>
+                        <Text Value="1" Alignment="Center" TextColor="#fff" />
+                        <Rectangle Width="25" Height="50%" Alignment="TopRight" Fill="Green">
+                            <Text Value="+" Alignment="Center" />
+                            <Clicked>
+                                <DebugAction Message="Bok +1" />
+                            </Clicked>
+                        </Rectangle>
+                        <Rectangle Width="25" Height="50%" Alignment="BottomRight" Fill="Yellow">
+                            <Text Value="-" Alignment="Center" />
+                            <Clicked>
+                                <DebugAction Message="Bok -1" />
+                            </Clicked>
+                        </Rectangle>
+                    </Rectangle>
+                    <Rectangle Width="100" Height="50" Margin="0,10,0,0">
+                        <Stroke Width="1">
+                            <SolidColor Color="#000" />
+                        </Stroke>
+                        <Text Value="Bestill" Alignment="Center" TextColor="#fff"/>
+                    </Rectangle>
+                </StackPanel>
+            </Rectangle>
+            <Rectangle Row="1" Fill="Blue" Width="100%" Height="200">
+                <StackPanel>
+                    <Text Alignment="Center" Value="Boktitel" TextColor="#fff" FontSize="22" Margin="0,10,0,0"/>
+                    <Rectangle Width="100" Height="50" Margin="0,10,0,0">
+                        <Stroke Width="1">
+                            <SolidColor Color="#000" />
+                        </Stroke>
+                        <Text Value="0 stk ←" Alignment="Center" TextColor="#fff"/>
+                    </Rectangle>
+                    <Rectangle Width="100" Height="50" Margin="0,10,0,0">
+                        <Stroke Width="1">
+                            <SolidColor Color="#000" />
+                        </Stroke>
+                        <Text Value="Bestill" Alignment="Center" TextColor="#fff"/>
+                    </Rectangle>
+                </StackPanel>
+            </Rectangle>
+            <Rectangle Row="2" Fill="Green" Width="100%" Height="200">
+                <StackPanel>
+                    <Text Alignment="Center" Value="Boktitel" TextColor="#fff" FontSize="22" Margin="0,10,0,0"/>
+                    <Rectangle Width="100" Height="50" Margin="0,10,0,0">
+                        <Stroke Width="1">
+                            <SolidColor Color="#000" />
+                        </Stroke>
+                        <Text Value="0 stk ←" Alignment="Center" TextColor="#fff"/>
+                    </Rectangle>
+                    <Rectangle Width="100" Height="50" Margin="0,10,0,0">
+                        <Stroke Width="1">
+                            <SolidColor Color="#000" />
+                        </Stroke>
+                        <Text Value="Bestill" Alignment="Center" TextColor="#fff"/>
+                    </Rectangle>
+                </StackPanel>
+            </Rectangle>
+            <Rectangle Row="3" Fill="Red" Width="100%" Height="200">
+                <StackPanel>
+                    <Text Alignment="Center" Value="Boktitel" TextColor="#fff" FontSize="22" Margin="0,10,0,0"/>
+                    <Rectangle Width="100" Height="50" Margin="0,10,0,0">
+                        <Stroke Width="1">
+                            <SolidColor Color="#000" />
+                        </Stroke>
+                        <Text Value="0 stk ←" Alignment="Center" TextColor="#fff"/>
+                    </Rectangle>
+                    <Rectangle Width="100" Height="50" Margin="0,10,0,0">
+                        <Stroke Width="1">
+                            <SolidColor Color="#000" />
+                        </Stroke>
+                        <Text Value="Bestill" Alignment="Center" TextColor="#fff"/>
+                    </Rectangle>
+                </StackPanel>
+            </Rectangle>
+            <Rectangle Row="4" Fill="Blue" Width="100%" Height="200">
+                <StackPanel>
+                    <Text Alignment="Center" Value="Boktitel" TextColor="#fff" FontSize="22" Margin="0,10,0,0"/>
+                    <Rectangle Width="100" Height="50" Margin="0,10,0,0">
+                        <Stroke Width="1">
+                            <SolidColor Color="#000" />
+                        </Stroke>
+                        <Text Value="0 stk ←" Alignment="Center" TextColor="#fff"/>
+                    </Rectangle>
+                    <Rectangle Width="100" Height="50" Margin="0,10,0,0">
+                        <Stroke Width="1">
+                            <SolidColor Color="#000" />
+                        </Stroke>
+                        <Text Value="Bestill" Alignment="Center" TextColor="#fff"/>
+                    </Rectangle>
+                </StackPanel>
+            </Rectangle>
+            <Rectangle Row="5" Fill="Green" Width="100%" Height="200">
+                <StackPanel>
+                    <Text Alignment="Center" Value="Boktitel" TextColor="#fff" FontSize="22" Margin="0,10,0,0"/>
+                    <Rectangle Width="100" Height="50" Margin="0,10,0,0">
+                        <Stroke Width="1">
+                            <SolidColor Color="#000" />
+                        </Stroke>
+                        <Text Value="0 stk ←" Alignment="Center" TextColor="#fff"/>
+                    </Rectangle>
+                    <Rectangle Width="100" Height="50" Margin="0,10,0,0">
+                        <Stroke Width="1">
+                            <SolidColor Color="#000" />
+                        </Stroke>
+                        <Text Value="Bestill" Alignment="Center" TextColor="#fff"/>
+                    </Rectangle>
+                </StackPanel>
+            </Rectangle>
+        </Grid>
+    </ScrollView>
+</Style>
