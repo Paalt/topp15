@@ -4,6 +4,12 @@
 		<Rectangle Height="2" Width="35%" Fill="#fff9" />
 	</Panel>
 
+    <Rectangle ux:Class="ProgressBar" Width="90%" Height="30" Fill="Gray" Alignment="Center">
+    	<Text Value="{data}" Alignment="CenterRight" />
+        <Rectangle ux:Name="progress" Width="0%" Height="100%" Fill="Blue" Alignment="Left" />
+    	<DataBinding Target="progress.Width" Key="data" />
+    </Rectangle>
+
 	<FileImageSource ux:Key="profile1" File="Assets/avatarcalendar3.png"/>
 	<FileImageSource ux:Key="profile2" File="Assets/avatarcalendar2.png"/>
 	<FileImageSource ux:Key="profile3" File="Assets/avatarcalendar.png" />
