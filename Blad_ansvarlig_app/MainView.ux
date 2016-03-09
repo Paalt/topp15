@@ -6,7 +6,7 @@
 		<FileImageSource File="Assets/avatar2.png" ux:Key="home2"/>
 		<FileImageSource File="Assets/avatar3.png" ux:Key="home3"/>
 		<ux:Include File="Resources.ux" />
-		<ux:Include File="order.ux" />
+		<ux:Include File="Order.ux" />
 
 		<!-- Login screen -->
 		<UserEvent Name="ToggleLoggedIn" />
