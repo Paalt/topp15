@@ -7,6 +7,7 @@
 		<FileImageSource File="Assets/avatar3.png" ux:Key="home3"/>
 		<ux:Include File="Resources.ux" />
 		<ux:Include File="Order.ux" />
+		<!-- <ux:Include File="Groups.ux" /> -->
 
 		<!-- Login screen -->
 		<UserEvent Name="ToggleLoggedIn" />
@@ -38,31 +39,7 @@
 				<Rectangle Layer="Background">
 					<ImageFill File="Assets/bglogin.png"/>
 				</Rectangle>
-
-				<!-- Start Bestill Bøker -->
-				<Panel ux:Name="BestilBoker" IsEnabled="false" Opacity="0">
-					<StackPanel Dock="Top">
-						<Text FontSize="22" Alignment="VerticalCenter" TextAlignment="Center" Value="Bestill Bøker" Padding="2" TextColor="#FFF" />
-						<Rectangle Height="1" Margin="0,0,0,0" Fill="#333c48" />
-					</StackPanel>
-					<Order />
-					<WhileTrue ux:Name="ShowOrder">
-						<Change BestilBoker.IsEnabled="true" />
-						<Change BestilBoker.Opacity="1" />
-					</WhileTrue>
-				</Panel>
 				
-				<Panel ux:Name="GroupScreen" IsEnabled="false" Opacity="0">
-					<StackPanel Dock="Top">
-						<Text FontSize="22" Alignment="VerticalCenter" TextAlignment="Center" Value="Grupper" Padding="2" TextColor="#FFF" />
-						<Rectangle Height="1" Margin="0,0,0,0" Fill="#333c48" />
-					</StackPanel>
-					<WhileTrue ux:Name="ShowGroup">
-						<Change GroupScreen.IsEnabled="true" />
-						<Change GroupScreen.Opacity="1" />
-					</WhileTrue>
-				</Panel>
-
 				<!-- Menu -->
 				<Panel ux:Name="WobbleButton" TransformOrigin="Center">
 					<Cross ux:Name="cross" />
@@ -83,6 +60,9 @@
 					</ClockIcon>
 					<TalkIcon ux:Name="icon2" Margin="70,70,0,0" Width="30" Height="30" Alignment="TopLeft" Opacity="0" IsEnabled="false">
 						<Translation ux:Name="trans2" X="1" Y="1" RelativeTo="Size" />
+						<!-- <Clicked>
+							<Toggle Target="ShowGroup"/>
+						</Clicked> -->
 					</TalkIcon>
 					<LocationIcon ux:Name="icon3" Margin="30,40,20,0" Width="30" Height="30" Alignment="Top" Opacity="0" IsEnabled="false">
 						<Translation ux:Name="trans3" Y="1.5" RelativeTo="Size" />
@@ -119,6 +99,34 @@
 						<Change icon3.Opacity="1" Delay="0.1" Duration="0.1" Easing="QuadraticInOut" DelayBack="0"/>
 					</WhileTrue>
 				</Panel>
+
+
+				<!-- Bestill Bøker -->
+				<Panel ux:Name="BestilBoker" IsEnabled="false" Opacity="0">
+					<StackPanel Dock="Top">
+						<Text FontSize="22" Alignment="VerticalCenter" TextAlignment="Center" Value="Bestill Bøker" Padding="2" TextColor="#FFF" />
+						<Rectangle Height="1" Margin="0,0,0,0" Fill="#333c48" />
+					</StackPanel>
+					<Order />
+					<WhileTrue ux:Name="ShowOrder">
+						<Change BestilBoker.IsEnabled="true" />
+						<Change BestilBoker.Opacity="1" />
+					</WhileTrue>
+				</Panel>
+				
+				<!-- Gruppe liste -->
+				<!-- <Panel ux:Name="GroupScreen" IsEnabled="false" Opacity="0">
+					<StackPanel Dock="Top">
+						<Text FontSize="22" Alignment="VerticalCenter" TextAlignment="Center" Value="Grupper" Padding="2" TextColor="#FFF" />
+						<Rectangle Height="1" Margin="0,0,0,0" Fill="#333c48" />
+					</StackPanel>
+					<Groups />
+					<WhileTrue ux:Name="ShowGroup">
+						<Change GroupScreen.IsEnabled="true" />
+						<Change GroupScreen.Opacity="1" />
+					</WhileTrue>
+				</Panel> -->
+
 			</Panel>
 
 			<!-- Animations -->
