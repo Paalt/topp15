@@ -1,4 +1,9 @@
 <Style>
+    <StackPanel Dock="Top" ux:Class="OrderBar">
+        <Text FontSize="22" Alignment="VerticalCenter" TextAlignment="Center" Value="Bestill Bøker" Padding="2" TextColor="#FFF" />
+        <Rectangle Height="1" Margin="0,0,0,0" Fill="#333c48" />
+    </StackPanel>
+    
     <ScrollView Margin="0,30,0,0" ux:Class="Order">
         <Grid RowCount="6" ColumnCount="1">
             <Rectangle Row="0" Fill="Red" Width="100%" Height="200">
