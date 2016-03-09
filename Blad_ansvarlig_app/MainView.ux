@@ -6,7 +6,7 @@
 		<FileImageSource File="Assets/avatar2.png" ux:Key="home2"/>
 		<FileImageSource File="Assets/avatar3.png" ux:Key="home3"/>
 		<ux:Include File="Resources.ux" />
-		<ux:Include File="Order.ux" />
+		<ux:Include File="order.ux" />
 		<!-- <ux:Include File="Groups.ux" /> -->
 
 		<!-- Login screen -->
@@ -15,12 +15,12 @@
 		<Panel>
 			<JavaScript File="MainView.js" />
 			<JavaScript>
-				var Observable = require("FuseJS/Observable");
-            	var data = Observable();
-            	fetch('https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://www.dagbladet.no/rss/nyheter/').then(function(response) { return response.json(); }).then(function(responseObject) { data.value = responseObject; });
-            	module.exports = {
-                	dataSource: data
-            	};
+				// var Observable = require("FuseJS/Observable");
+    //         	var data = Observable();
+    //         	fetch('https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://www.dagbladet.no/rss/nyheter/').then(function(response) { return response.json(); }).then(function(responseObject) { data.value = responseObject; });
+    //         	module.exports = {
+    //             	dataSource: data
+    //         	};
 			</JavaScript>
 			
 			<!-- Code for showing RSS -->
@@ -39,6 +39,35 @@
 				<Rectangle Layer="Background">
 					<ImageFill File="Assets/bglogin.png"/>
 				</Rectangle>
+				
+				
+
+
+				<!-- Bestill Bøker -->
+				<Panel ux:Name="BestilBoker" IsEnabled="false" Opacity="0">
+					<StackPanel Dock="Top">
+						<Text FontSize="22" Alignment="VerticalCenter" TextAlignment="Center" Value="Bestill Bøker" Padding="2" TextColor="#FFF" />
+						<Rectangle Height="1" Margin="0,0,0,0" Fill="#333c48" />
+					</StackPanel>
+					<Order />
+					<WhileTrue ux:Name="ShowOrder">
+						<Change BestilBoker.IsEnabled="true" />
+						<Change BestilBoker.Opacity="1" />
+					</WhileTrue>
+				</Panel>
+				
+				<!-- Gruppe liste -->
+				<!-- <Panel ux:Name="GroupScreen" IsEnabled="false" Opacity="0">
+					<StackPanel Dock="Top">
+						<Text FontSize="22" Alignment="VerticalCenter" TextAlignment="Center" Value="Grupper" Padding="2" TextColor="#FFF" />
+						<Rectangle Height="1" Margin="0,0,0,0" Fill="#333c48" />
+					</StackPanel>
+					<Groups />
+					<WhileTrue ux:Name="ShowGroup">
+						<Change GroupScreen.IsEnabled="true" />
+						<Change GroupScreen.Opacity="1" />
+					</WhileTrue>
+				</Panel> -->
 				
 				<!-- Menu -->
 				<Panel ux:Name="WobbleButton" TransformOrigin="Center">
@@ -99,34 +128,6 @@
 						<Change icon3.Opacity="1" Delay="0.1" Duration="0.1" Easing="QuadraticInOut" DelayBack="0"/>
 					</WhileTrue>
 				</Panel>
-
-
-				<!-- Bestill Bøker -->
-				<Panel ux:Name="BestilBoker" IsEnabled="false" Opacity="0">
-					<StackPanel Dock="Top">
-						<Text FontSize="22" Alignment="VerticalCenter" TextAlignment="Center" Value="Bestill Bøker" Padding="2" TextColor="#FFF" />
-						<Rectangle Height="1" Margin="0,0,0,0" Fill="#333c48" />
-					</StackPanel>
-					<Order />
-					<WhileTrue ux:Name="ShowOrder">
-						<Change BestilBoker.IsEnabled="true" />
-						<Change BestilBoker.Opacity="1" />
-					</WhileTrue>
-				</Panel>
-				
-				<!-- Gruppe liste -->
-				<!-- <Panel ux:Name="GroupScreen" IsEnabled="false" Opacity="0">
-					<StackPanel Dock="Top">
-						<Text FontSize="22" Alignment="VerticalCenter" TextAlignment="Center" Value="Grupper" Padding="2" TextColor="#FFF" />
-						<Rectangle Height="1" Margin="0,0,0,0" Fill="#333c48" />
-					</StackPanel>
-					<Groups />
-					<WhileTrue ux:Name="ShowGroup">
-						<Change GroupScreen.IsEnabled="true" />
-						<Change GroupScreen.Opacity="1" />
-					</WhileTrue>
-				</Panel> -->
-
 			</Panel>
 
 			<!-- Animations -->
