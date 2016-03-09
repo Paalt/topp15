@@ -21,6 +21,18 @@
                 	dataSource: data
             	};
 			</JavaScript>
+			
+			<!-- Code for showing RSS -->
+			<!-- <ScrollView>
+				<StackPanel Alignment="Top">
+					<Panel Height="7" />
+					<Text Value="ajsidsaijdi" />
+					<Each Items="{dataSource.responseData.feed.entries}">
+						<Text Value="{title}" />
+						<Text Value="{description}" />
+					</Each>
+				</StackPanel>
+			</ScrollView> -->
 
 			<Panel ux:Name="loggedInView" Opacity="0" IsEnabled="false" TransformOrigin="Center">
 				<Rectangle Layer="Background">
@@ -34,70 +46,79 @@
 						<Rectangle Height="1" Margin="0,0,0,0" Fill="#333c48" />
 					</StackPanel>
 					<Order />
+					<WhileTrue ux:Name="ShowOrder">
+						<Change BestilBoker.IsEnabled="true" />
+						<Change BestilBoker.Opacity="1" />
+					</WhileTrue>
 				</Panel>
-				<!-- End Bestill Bøker -->
 				
-				<!-- Show RSS -->
-				<!-- <ScrollView>
-					<StackPanel Alignment="Top">
-						<Panel Height="7" />
-						<Text Value="ajsidsaijdi" />
-						<Each Items="{dataSource.responseData.feed.entries}">
-							<Text Value="{title}" />
-							<Text Value="{description}" />
-						</Each>
+				<Panel ux:Name="GroupScreen" IsEnabled="false" Opacity="0">
+					<StackPanel Dock="Top">
+						<Text FontSize="22" Alignment="VerticalCenter" TextAlignment="Center" Value="Grupper" Padding="2" TextColor="#FFF" />
+						<Rectangle Height="1" Margin="0,0,0,0" Fill="#333c48" />
 					</StackPanel>
-				</ScrollView> -->
+					<WhileTrue ux:Name="ShowGroup">
+						<Change GroupScreen.IsEnabled="true" />
+						<Change GroupScreen.Opacity="1" />
+					</WhileTrue>
+				</Panel>
 
-				<WhileTrue ux:Name="ShowLoggedIn">
-					<WobbleButton Width="300" Height="300" Alignment="BottomRight" Offset="100,100" />
-				</WhileTrue>
-			</Panel>
+				<!-- Menu -->
+				<Panel ux:Name="WobbleButton" TransformOrigin="Center">
+					<Cross ux:Name="cross" />
+				
+					<WhileTrue ux:Name="ShowMenu">
+						<!-- <WobbleButton Width="300" Height="300" Alignment="BottomRight" Offset="100,100" /> -->
+						<Change WobbleButton.Width="300" />
+						<Change WobbleButton.Height="300" />
+						<Change WobbleButton.Alignment="BottomRight" />
+						<Change WobbleButton.Offset="100,100" />
+					</WhileTrue>
+					
+					<ClockIcon ux:Name="icon1" Margin="40,30,0,20" Width="30" Height="30" Alignment="Left" Opacity="0" IsEnabled="false">
+						<Translation ux:Name="trans1" X="1.5" RelativeTo="Size" />
+						<Clicked>
+							<Toggle Target="ShowOrder"/>
+						</Clicked>
+					</ClockIcon>
+					<TalkIcon ux:Name="icon2" Margin="70,70,0,0" Width="30" Height="30" Alignment="TopLeft" Opacity="0" IsEnabled="false">
+						<Translation ux:Name="trans2" X="1" Y="1" RelativeTo="Size" />
+					</TalkIcon>
+					<LocationIcon ux:Name="icon3" Margin="30,40,20,0" Width="30" Height="30" Alignment="Top" Opacity="0" IsEnabled="false">
+						<Translation ux:Name="trans3" Y="1.5" RelativeTo="Size" />
+					</LocationIcon>
 
-			<!-- Logged inn screen -->
-			<Panel ux:Class="WobbleButton" ux:Name="self" TransformOrigin="Center">
-				<Cross ux:Name="cross" />
+					<Circle ux:Name="overlayCircle" Fill="#FF0057" Opacity="0" Width="20%" Height="20%" Alignment="Center">
+						<Clicked>
+							<Toggle Target="expanded" />
+						</Clicked>
+					</Circle>
+					<Circle ux:Name="circle" Fill="#FF4081" Width="20%" Height="20%" />
 
-				<ClockIcon ux:Name="icon1" Margin="40,30,0,20" Width="30" Height="30" Alignment="Left" Opacity="0" IsEnabled="false">
-					<Translation ux:Name="trans1" X="1.5" RelativeTo="Size" />
-				</ClockIcon>
-				<TalkIcon ux:Name="icon2" Margin="70,70,0,0" Width="30" Height="30" Alignment="TopLeft" Opacity="0" IsEnabled="false">
-					<Translation ux:Name="trans2" X="1" Y="1" RelativeTo="Size" />
-				</TalkIcon>
-				<LocationIcon ux:Name="icon3" Margin="30,40,20,0" Width="30" Height="30" Alignment="Top" Opacity="0" IsEnabled="false">
-					<Translation ux:Name="trans3" Y="1.5" RelativeTo="Size" />
-				</LocationIcon>
+					<WhileTrue ux:Name="enableOptions">
+						<Change icon1.IsEnabled="true" />
+						<Change icon2.IsEnabled="true" />
+						<Change icon3.IsEnabled="true" />
+					</WhileTrue>
 
-				<Circle ux:Name="overlayCircle" Fill="#FF0057" Opacity="0" Width="20%" Height="20%" Alignment="Center">
-					<Clicked>
-						<Toggle Target="expanded" />
-					</Clicked>
-				</Circle>
-				<Circle ux:Name="circle" Fill="#FF4081" Width="20%" Height="20%" />
+					<WhileTrue ux:Name="expanded">
+						<Change circle.Height="100" Easing="CubicInOut" Duration="0.2" DelayBack="0"/>
+						<Change circle.Width="100" Easing="CubicInOut" Duration="0.2"  DelayBack="0"/>
 
-				<WhileTrue ux:Name="enableOptions">
-					<Change icon1.IsEnabled="true" />
-					<Change icon2.IsEnabled="true" />
-					<Change icon3.IsEnabled="true" />
-				</WhileTrue>
+						<Change enableOptions.Value="true" Delay="0.1" />
+						<Change overlayCircle.Opacity="1" Delay="0.1" Duration="0.1" />
+						<Rotate Target="cross" Degrees="-45" Duration="0.2" Easing="CubicInOut" />
 
-				<WhileTrue ux:Name="expanded">
-					<Change circle.Height="100" Easing="CubicInOut" Duration="0.2" DelayBack="0"/>
-					<Change circle.Width="100" Easing="CubicInOut" Duration="0.2"  DelayBack="0"/>
+						<Change trans1.X="0" Delay="0" Duration="0.4" Easing="BounceOut" EasingBack="QuadraticInOut" DurationBack="0.2"    DelayBack="0"/>
+						<Change trans2.X="0" Delay="0.05" Duration="0.4" Easing="BounceOut" EasingBack="QuadraticInOut" DurationBack="0.2" DelayBack="0"/>
+						<Change trans2.Y="0" Delay="0.05" Duration="0.4" Easing="BounceOut" EasingBack="QuadraticInOut" DurationBack="0.2" DelayBack="0"/>
+						<Change trans3.Y="0" Delay="0.1" Duration="0.4" Easing="BounceOut" EasingBack="QuadraticInOut" DurationBack="0.2"  DelayBack="0"/>
 
-					<Change enableOptions.Value="true" Delay="0.1" />
-					<Change overlayCircle.Opacity="1" Delay="0.1" Duration="0.1" />
-					<Rotate Target="cross" Degrees="-45" Duration="0.2" Easing="CubicInOut" />
-
-					<Change trans1.X="0" Delay="0" Duration="0.4" Easing="BounceOut" EasingBack="QuadraticInOut" DurationBack="0.2"    DelayBack="0"/>
-					<Change trans2.X="0" Delay="0.05" Duration="0.4" Easing="BounceOut" EasingBack="QuadraticInOut" DurationBack="0.2" DelayBack="0"/>
-					<Change trans2.Y="0" Delay="0.05" Duration="0.4" Easing="BounceOut" EasingBack="QuadraticInOut" DurationBack="0.2" DelayBack="0"/>
-					<Change trans3.Y="0" Delay="0.1" Duration="0.4" Easing="BounceOut" EasingBack="QuadraticInOut" DurationBack="0.2"  DelayBack="0"/>
-
-					<Change icon1.Opacity="1" Delay="0.1" Duration="0.1" Easing="QuadraticInOut" DelayBack="0"/>
-					<Change icon2.Opacity="1" Delay="0.1" Duration="0.1" Easing="QuadraticInOut" DelayBack="0"/>
-					<Change icon3.Opacity="1" Delay="0.1" Duration="0.1" Easing="QuadraticInOut" DelayBack="0"/>
-				</WhileTrue>
+						<Change icon1.Opacity="1" Delay="0.1" Duration="0.1" Easing="QuadraticInOut" DelayBack="0"/>
+						<Change icon2.Opacity="1" Delay="0.1" Duration="0.1" Easing="QuadraticInOut" DelayBack="0"/>
+						<Change icon3.Opacity="1" Delay="0.1" Duration="0.1" Easing="QuadraticInOut" DelayBack="0"/>
+					</WhileTrue>
+				</Panel>
 			</Panel>
 
 			<!-- Animations -->
@@ -126,7 +147,7 @@
 			<WhileTrue ux:Name="showLoggedIn">
 				<Change loggedInView.Opacity="1" Delay="0.1" Duration="0.65" DurationBack="0.35" DelayBack="0.3" Easing="CubicInOut"/>
 
-				<Change ShowLoggedIn.Value="true" />
+				<Change ShowMenu.Value="true" />
 				<RaiseUserEvent Name="ToggleLoggedIn" />
 
 				<Change loggedInView.IsEnabled="true" />
