@@ -39,9 +39,6 @@
 				<Rectangle Layer="Background">
 					<ImageFill File="Assets/bglogin.png"/>
 				</Rectangle>
-				
-				
-
 
 				<!-- Bestill Bøker -->
 				<Panel ux:Name="BestilBoker" IsEnabled="false" Opacity="0">
@@ -135,8 +132,8 @@
 				<Change changeWidth.Value="true" DelayBack="0"/>
 				<Change loadCircle.Value="true" DelayBack="0"/>
 
-				<Change scaleAndFade.Value="true" Delay="2.5" DelayBack="0"/>
-				<Change showLoggedIn.Value="true" Delay="2.9" />
+				<Change scaleAndFade.Value="true" Delay="0.5" DelayBack="0"/>
+				<Change showLoggedIn.Value="true" Delay="0.9" />
 			</WhileTrue>
 			<WhileTrue ux:Name="changeWidth">
 			</WhileTrue>
