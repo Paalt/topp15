@@ -1,6 +1,6 @@
 <App Theme="Basic">
 	<EdgeNavigator ux:Name="EdgeNavigator">
-		<JavaScript>
+		<!--<JavaScript>
 			var Observable = require("FuseJS/Observable");
 
 			var data = Observable();
@@ -12,7 +12,7 @@
 			module.exports = {
 				data: data
 			};
-		</JavaScript>
+		</JavaScript>-->
 
 		<!-- Add a panel to the left edge -->
 		<Sidebar Width="330" ux:Name="menu" EdgeNavigation.Edge="Left">
@@ -77,14 +77,14 @@
 			</StackPanel>
 
 			<!-- This is the main scroll area -->
-			<ScrollView>
+			<!--<ScrollView>
 				<StackPanel Alignment="Top">
 					<Panel Height="7" />
 					<Each Items="{data.responseData}">
 						<NewsItem />
 					</Each>
 				</StackPanel>
-			</ScrollView>
+			</ScrollView>-->
 		</DockPanel>
 	</EdgeNavigator>
 </App>
