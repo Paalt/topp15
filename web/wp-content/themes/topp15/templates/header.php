@@ -1,12 +1,31 @@
 <header class="banner">
-  <div class="container">
-    <a class="brand" href="<?= esc_url(home_url('/')); ?>"><img id="logo" src="http://localhost/topp15/web/wp-content/uploads/2016/02/c.jpg" alt="<?php bloginfo('name'); ?>"></a>
-    <nav class="nav-primary">
-      <?php
-      if (has_nav_menu('primary_navigation')) :
-        wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav']);
-      endif;
-      ?>
-    </nav>
-  </div>
+	<div class="container">
+    	<!-- Logo  -->
+        <div id="site-branding" class="small-5 medium-3 large-2 columns">
+            <!-- If a logo is uploaded we show the logo-->
+            <?php if ( get_theme_mod( 'topp15_logo' ) ) : ?>
+                <div class='site-logo'>
+                    <a class="brand" href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'><img id="logo" src='<?php echo esc_url( get_theme_mod( 'topp15_logo' ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'></a>
+                </div>
+            <!-- Else we show the title -->
+            <?php else : ?>
+                <hgroup>
+                    <h1 class='site-title'><a href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'><?php bloginfo( 'name' ); ?></a></h1>
+                    <h2 class='site-description'><?php bloginfo( 'description' ); ?></h2>
+                </hgroup>
+            <?php endif; ?>
+        </div>
+		<!-- Primary Navigation-->
+        <nav class="nav-primary">
+			<?php
+            if (has_nav_menu('primary_navigation')) :
+            wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav']);
+            endif;
+            ?>
+        </nav>
+        <md-button class="md-raised md-primary">Click me</md-button>
+        <md-button class="md-raised md-accent">or maybe me</md-button>
+        <md-button class="md-raised md-warn">Careful</md-button>
+        
+	</div>
 </header>

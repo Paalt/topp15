@@ -11,6 +11,5 @@
     "angular-formly": "^7.3.9",
     "angular-material": "^1.0.4"
   },
-  "overrides": {
-  }
+  "overrides": {}
 }

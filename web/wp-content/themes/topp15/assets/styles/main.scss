@@ -1,22 +1,57 @@
-@import "common/variables";
+/**
+ * CONTENTS
+ *
+ * SETTINGS
+ * Variables............Globally-available variables and config.
+ * Mixins...............Useful mixins. 
+ ** Generic
+ *** Normalize.css........A level playing field.
+ *** Box-sizing...........Better default `box-sizing`.
+ *
+ * BASE
+ * Globals..............Default blocks
+ * Headings.............H1–H6 blocks.
+ *
+ * LAYOUTS
+ * Header...............Layout for the page header
+ * Pages................Layout for pages and main content
+ * Posts................Layout for posts content
+ * Sidebar..............Layout for the sidebar
+ *
+ * COMPONENTS
+ * Buttons..............Button elements
+ * Forms................Form elements
+ * Icons................Icon elements
+ * Grid.................Grid elements
+ * Media................Media elements
+ *
+ * STATES
+ * Alerts...............Alert modifiers.
+ * Text.................Text modifieres.
+ */
+
+@import "settings/variables";
+@import "settings/mixins";
+@import "settings/generic";
 
 // Automatically injected Bower dependencies via wiredep (never manually edit this block)
 // bower:scss
 // endbower
 
-@import "common/global";
-@import "common/typography";
+@import "base/global";
+@import "base/headings";
 
 @import "components/buttons";
-@import "components/comments";
 @import "components/forms";
 @import "components/grid";
+@import "components/icons";
 @import "components/media";
-@import "components/wp-classes";
 
 @import "layouts/header";
-@import "layouts/sidebar";
 @import "layouts/footer";
 @import "layouts/pages";
 @import "layouts/posts";
 @import "layouts/tinymce";
+
+@import "states/alerts";
+@import "states/text";

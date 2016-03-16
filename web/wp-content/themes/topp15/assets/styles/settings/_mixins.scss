@@ -1,0 +1,5 @@
+@mixin main-font($font-weight) {
+	font-family: $main-font; 
+	font-weight: $font-weight;
+}
+
