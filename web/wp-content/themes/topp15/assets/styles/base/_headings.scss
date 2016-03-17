@@ -1,0 +1,88 @@
+/*------------------------------------*\
+	#HEADINGS
+\*------------------------------------*/
+/** Headings 
+ *	Further Reading: 
+ *	- http:/csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/
+ *	- https://css-tricks.com/rems-ems/
+ */
+
+
+/**
+ * Modules will scale with document 
+ */
+.header {
+  font-size: 1.5rem;
+}
+
+.footer {
+  font-size: 0.75rem;
+}
+
+.sidebar {
+  font-size: 0.85rem;
+}
+
+/** 
+ * Type will scale with modules 
+ */
+h1, h2,
+h3, h4,
+h5, h6,
+.font-header {
+  font-family: $main-font;
+  cursor: text;
+}
+
+h1, .alpha {
+  font-size: 3rem;
+}
+
+h2, .beta {
+  font-size: 2.5rem;
+}
+
+h3, .gamma {
+  font-size: 2rem;
+}
+
+h4, .delta {
+  font-size: 1.5rem;
+}
+
+h5, .epsilon {
+  font-size: 1.25rem;
+}
+
+h6, .zeta {
+  font-size: 1rem;
+}
+
+/**
+ * These handle massive type, for less frequently occuring bits of text (e.g. in mastheads and banners). 
+ */
+.giga {
+  font-size: 6rem;
+}
+
+.mega {
+  font-size: 5rem;
+}
+
+.kilo {
+  font-size: 4rem;
+}
+
+/** 
+ *Smaller-than-body-copy sizes here. 
+ */
+.small, .milli {
+  font-size: 0.75em;
+}
+
+/* 
+ * Subheadings 
+ */
+.subheading {
+  font-weight: normal;
+}

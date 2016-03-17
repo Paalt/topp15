@@ -1,7 +1,7 @@
 <header class="banner">
 	<div class="container">
     	<!-- Logo  -->
-        <div id="site-branding" class="small-5 medium-3 large-2 columns">
+        <div class="site-branding">
             <!-- If a logo is uploaded we show the logo-->
             <?php if ( get_theme_mod( 'topp15_logo' ) ) : ?>
                 <div class='site-logo'>
@@ -16,7 +16,7 @@
             <?php endif; ?>
         </div>
 		<!-- Primary Navigation-->
-        <nav class="nav-primary">
+        <nav class="nav-primary" ng-controller="activeLocationCtrl">
 			<?php
             if (has_nav_menu('primary_navigation')) :
             wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav']);

@@ -1,113 +1,94 @@
-	/*------------------------------------*\
-		#HEADINGS
-	\*------------------------------------*/
-	/** Headings 
-	 *	Further Reading: 
-	 *	- http:/csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/
-	 *	- https://css-tricks.com/rems-ems/
-	 */
-	 
-	@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
-		/* Smartphones (portrait and landscape) ----------- */
-		html {
-			font-size: 14px;
-		  }
-	}
-	
-	@media only screen 
-	and (min-width : 321px) {
-		/* Smartphones (landscape) ----------- */
-		html {
-			font-size: 15px;
-		  }
-	}
-	
-	
-	@media only screen 
-	and (max-width : 320px) {
-		/* Smartphones (portrait) ----------- */
-		html {
-			font-size: 13px;
-		  }
-	}
-	
-	
-	@media only screen 
-	and (min-device-width : 768px) 
-	and (max-device-width : 1024px) {
-		/* iPads (portrait and landscape) ----------- */
-		html {
-			font-size: 16px;
-		  }
-	}
-	
-	
-	@media only screen 
-	and (min-device-width : 768px) 
-	and (max-device-width : 1024px) 
-	and (orientation : landscape) {
-		/* iPads (landscape) ----------- */
-		html {
-			font-size: 17px;
-		  }
-	}
-	
-	
-	@media only screen 
-	and (min-device-width : 768px) 
-	and (max-device-width : 1024px) 
-	and (orientation : portrait) {
-		/* iPads (portrait) ----------- */
-		html {
-			font-size: 16px;
-		  }
-	
-	}
-	
-	@media only screen 
-	and (min-width : 1200px) {
-		/* Desktops and laptops ----------- */
-		html {
-			font-size: 18px;
-		  }
-	}
-	
-	@media only screen 
-	and (min-width : 1700px) {
-		/* Large screens ----------- */
-		html {
-			font-size: 19px;
-		  }
-	}
-	
-	@media
-	only screen and (-webkit-min-device-pixel-ratio : 1.5),
-	only screen and (min-device-pixel-ratio : 1.5) {
-		/* iPhone 4 ----------- */
-		html {
-			font-size: 17px;
-		  }
-	}
-	
-	
-	/*------------------------------------*\
-		#Typography
-	\*------------------------------------*/
-	
-	.hyphenate {
-	  overflow-wrap: break-word;
-	  word-wrap: break-word;
-	  -webkit-hyphens: auto;
-	  -ms-hyphens: auto;
-	  -moz-hyphens: auto;
-	  hyphens: auto;
-	}
-	
-	p + p {   
-	   text-indent: 1.5em  /* I like to keep the indentation length equal to the line height. */
-	}
-	
-	h1 + p:first-letter { 
-	   font-size: 2em;
-	   line-height: 0;  /* The line-height must be adjusted to compensate for the increased font size, otherwise the leading for the overall line is disrupted. I find that any values below 0.4 work. */
-	}
+/*------------------------------------*\
+	#HEADINGS
+\*------------------------------------*/
+/** Headings 
+ *	Further Reading: 
+ *	- http:/csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/
+ *	- https://css-tricks.com/rems-ems/
+ */
+ 
+@media only screen
+and (min-device-width: 320px) 
+and (max-device-width: 480px) {
+	/* Smartphones (portrait and landscape) ----------- */
+	html {
+		font-size: 14px;
+	  }
+}
+
+@media only screen 
+and (min-width : 321px) {
+	/* Smartphones (landscape) ----------- */
+	html {
+		font-size: 15px;
+	  }
+}
+
+
+@media only screen 
+and (max-width : 320px) {
+	/* Smartphones (portrait) ----------- */
+	html {
+		font-size: 13px;
+	  }
+}
+
+
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+	/* iPads (portrait and landscape) ----------- */
+	html {
+		font-size: 16px;
+	  }
+}
+
+
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+	/* iPads (landscape) ----------- */
+	html {
+		font-size: 17px;
+	  }
+}
+
+
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+	/* iPads (portrait) ----------- */
+	html {
+		font-size: 16px;
+	  }
+
+}
+
+@media only screen 
+and (min-width : 1200px) {
+	/* Desktops and laptops ----------- */
+	html {
+		font-size: 18px;
+	  }
+}
+
+@media only screen 
+and (min-width : 1700px) {
+	/* Large screens ----------- */
+	html {
+		font-size: 19px;
+	  }
+}
+
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+	/* iPhone 4 ----------- */
+	html {
+		font-size: 17px;
+	  }
+}
+
+
