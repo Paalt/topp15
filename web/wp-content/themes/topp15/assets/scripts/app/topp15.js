@@ -1,4 +1,4 @@
-angular.module('topp15', ['ngMaterial', 'ngAnimate', 'ngAria', 'ngMessages'])
+angular.module('topp15', ['ngRoute', 'ngMaterial', 'ngAnimate', 'ngAria', 'ngMessages'])
 	
 	.config(['$mdThemingProvider', function($mdThemingProvider) {
 		"use strict";
