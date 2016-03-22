@@ -5,8 +5,8 @@
 		<FileImageSource File="Assets/avatar1.png" ux:Key="home1"/>
 		<FileImageSource File="Assets/avatar2.png" ux:Key="home2"/>
 		<FileImageSource File="Assets/avatar3.png" ux:Key="home3"/>
-		<!-- <ux:Include File="Resources.ux" />
-		<ux:Include File="Order.ux" /> -->
+		<ux:Include File="Resources.ux" />
+		<ux:Include File="Order.ux" />
 		<!-- <ux:Include File="Groups.ux" /> -->
 
 		<!-- Login screen -->
@@ -34,7 +34,7 @@
 				
 				<!-- Menu -->
 				<Panel ux:Name="WobbleButton" TransformOrigin="Center">
-					<Cross ux:Name="cross" />
+				
 					<WhileTrue ux:Name="ShowMenu">
 						<!-- <WobbleButton Width="300" Height="300" Alignment="BottomRight" Offset="100,100" /> -->
 						<Change WobbleButton.Width="300" />
@@ -59,7 +59,8 @@
 						<Translation ux:Name="trans3" Y="1.5" RelativeTo="Size" />
 					</LocationIcon>
 
-					<Circle ux:Name="overlayCircle" Fill="#FF0057" Opacity="0" Width="20%" Height="20%" Alignment="Center">
+					<Circle ux:Name="overlayCircle" Fill="#FF0057" Opacity="1" Width="20%" Height="20%" Alignment="Center">
+						<Cross ux:Name="cross" />
 						<Clicked>
 							<Toggle Target="expanded" />
 						</Clicked>
