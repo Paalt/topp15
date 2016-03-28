@@ -30,6 +30,28 @@ module.exports = {
     data: data
 };
 
+//Test Grupper
+function Gruppe(navn, medlemmer)
+{
+	this.navn = navn;
+	this.medlemmer = medlemmer;
+}
+
+var grupper = [
+	new Gruppe ("Gruppe 1", 14),
+	new Gruppe ("Kiwis gruppe", 25),
+	new Gruppe ("Gruppe 3", 50),
+	new Gruppe ("Remas gruppe", 1),
+	new Gruppe ("Coops gruppe", 8),
+	new Gruppe ("Østlands gruppen", 13),
+	new Gruppe ("Gruppe 0111", 11),
+	new Gruppe ("Gruppe 8", 36)
+]
+
+module.exports = {
+	grupper: grupper
+}
+
 // Code for getting RSS
 // var Observable = require("FuseJS/Observable");
 // var data = Observable();

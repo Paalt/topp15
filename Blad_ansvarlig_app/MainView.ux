@@ -51,9 +51,9 @@
 					</ClockIcon>
 					<TalkIcon ux:Name="icon2" Margin="70,70,0,0" Width="30" Height="30" Alignment="TopLeft" Opacity="0" IsEnabled="false">
 						<Translation ux:Name="trans2" X="1" Y="1" RelativeTo="Size" />
-						<!-- <Clicked>
+						<Clicked>
 							<Toggle Target="ShowGroup"/>
-						</Clicked> -->
+						</Clicked>
 					</TalkIcon>
 					<LocationIcon ux:Name="icon3" Margin="30,40,20,0" Width="30" Height="30" Alignment="Top" Opacity="0" IsEnabled="false">
 						<Translation ux:Name="trans3" Y="1.5" RelativeTo="Size" />
@@ -102,17 +102,29 @@
 				</Panel>
 				
 				<!-- Gruppe liste -->
-				<!-- <Panel ux:Name="GroupScreen" IsEnabled="false" Opacity="0">
+				<Panel ux:Name="GroupScreen" IsEnabled="false" Opacity="0">
 					<StackPanel Dock="Top">
 						<Text FontSize="22" Alignment="VerticalCenter" TextAlignment="Center" Value="Grupper" Padding="2" TextColor="#FFF" />
 						<Rectangle Height="1" Margin="0,0,0,0" Fill="#333c48" />
 					</StackPanel>
-					<Groups />
+					<ScrollView Margin="0,40,0,0" ux:Name="Grupper">
+						<StackPanel>
+							<Each Items="{grupper}">
+								<Rectangle Height="50" Width="100%" Margin="0,0,0,10" Fill="#f00" CornerRadius="10">
+									<Text Value="{navn}" Padding="10,0,0,0"/>
+									<StackPanel Orientation="Horizontal" Alignment="Bottom" Padding="10,0,0,0">
+										<Text Value="{medlemmer}" />
+										<Text Value="/50" />
+									</StackPanel>
+								</Rectangle>
+							</Each>
+						</StackPanel>
+					</ScrollView>
 					<WhileTrue ux:Name="ShowGroup">
 						<Change GroupScreen.IsEnabled="true" />
 						<Change GroupScreen.Opacity="1" />
 					</WhileTrue>
-				</Panel> -->
+				</Panel>
 			</Panel>
 
 			<!-- Animations -->
