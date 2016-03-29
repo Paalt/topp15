@@ -31,21 +31,22 @@ module.exports = {
 };
 
 //Test Grupper
-function Gruppe(navn, medlemmer)
+function Gruppe(navn, medlemmer, beskrivelse)
 {
 	this.navn = navn;
 	this.medlemmer = medlemmer;
+  this.beskrivelse = beskrivelse;
 }
 
 var grupper = [
-	new Gruppe ("Gruppe 1", 14),
-	new Gruppe ("Kiwis gruppe", 25),
-	new Gruppe ("Gruppe 3", 50),
-	new Gruppe ("Remas gruppe", 1),
-	new Gruppe ("Coops gruppe", 8),
-	new Gruppe ("Østlands gruppen", 13),
-	new Gruppe ("Gruppe 0111", 11),
-	new Gruppe ("Gruppe 8", 36)
+	new Gruppe ("Gruppe 1", 14, "Dette er en test beskrivelse"),
+	new Gruppe ("Kiwis gruppe", 25, "Kiwis gruppe"),
+	new Gruppe ("Gruppe 3", 50,"N/A"),
+	new Gruppe ("Remas gruppe", 1,"REMA!!!!"),
+	new Gruppe ("Coops gruppe", 8,"Coop > rema"),
+	new Gruppe ("Østlands gruppen", 13,"For alle de butikkene på østlandet"),
+	new Gruppe ("Gruppe 0111", 11,"The binary group"),
+	new Gruppe ("Gruppe 8", 36,"")
 ]
 
 module.exports = {
