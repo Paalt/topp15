@@ -46,13 +46,19 @@
 					<ClockIcon ux:Name="icon1" Margin="40,30,0,20" Width="30" Height="30" Alignment="Left" Opacity="0" IsEnabled="false">
 						<Translation ux:Name="trans1" X="1.5" RelativeTo="Size" />
 						<Clicked>
-							<Toggle Target="ShowOrder"/>
+							<Set BestillBoker.IsEnabled="true" />
+							<Set BestillBoker.Opacity="1" />
+							<Set GroupScreen.IsEnabled="false" />
+							<Set GroupScreen.Opacity="0" />
 						</Clicked>
 					</ClockIcon>
 					<TalkIcon ux:Name="icon2" Margin="70,70,0,0" Width="30" Height="30" Alignment="TopLeft" Opacity="0" IsEnabled="false">
 						<Translation ux:Name="trans2" X="1" Y="1" RelativeTo="Size" />
 						<Clicked>
-							<Toggle Target="ShowGroup"/>
+							<Set GroupScreen.IsEnabled="true" />
+							<Set GroupScreen.Opacity="1" />
+							<Set BestillBoker.IsEnabled="false" />
+							<Set BestillBoker.Opacity="0" />
 						</Clicked>
 					</TalkIcon>
 					<LocationIcon ux:Name="icon3" Margin="30,40,20,0" Width="30" Height="30" Alignment="Top" Opacity="0" IsEnabled="false">
@@ -96,10 +102,6 @@
 				<Panel ux:Name="BestillBoker" IsEnabled="false" Opacity="0">
 					<OrderBar />
 					<Order />
-					<WhileTrue ux:Name="ShowOrder">
-						<Change BestillBoker.IsEnabled="true" />
-						<Change BestillBoker.Opacity="1" />
-					</WhileTrue>
 				</Panel>
 				
 				<!-- Gruppe liste -->
@@ -110,7 +112,7 @@
 					</StackPanel>
 					<ScrollView Margin="0,40,0,0" ux:Name="Grupper">
 						<StackPanel>
-							<Each Items="{grupper}">
+							<!-- <Each Items="{grupper}">
 								<Rectangle Height="50" Width="100%" Margin="0,0,0,10" Fill="#f00" CornerRadius="10">
 									<Text Value="{navn}" Padding="10,0,0,0"/>
 									<StackPanel Orientation="Horizontal" Alignment="Bottom" Padding="10,0,0,0">
@@ -118,13 +120,14 @@
 										<Text Value="/50" />
 									</StackPanel>
 								</Rectangle>
+							</Each> -->
+							<Each Items="{data.responseData}">
+								<Rectangle Height="50" Width="100%" Margin="0,0,0,10" Fill="#f00" CornerRadius="10" Clicked="{getId}">
+									<Text Value="{headline}" Padding="10,0,0,0"/>
+								</Rectangle>
 							</Each>
 						</StackPanel>
 					</ScrollView>
-					<WhileTrue ux:Name="ShowGroup">
-						<Change GroupScreen.IsEnabled="true" />
-						<Change GroupScreen.Opacity="1" />
-					</WhileTrue>
 				</Panel>
 			</Panel>
 

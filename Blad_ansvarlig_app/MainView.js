@@ -31,32 +31,40 @@ module.exports = {
 };
 
 //Test Grupper
-function Gruppe(navn, medlemmer, beskrivelse)
+function Gruppe(id, navn, medlemmer, beskrivelse)
 {
+  this.id = id;
 	this.navn = navn;
 	this.medlemmer = medlemmer;
   this.beskrivelse = beskrivelse;
 }
 
 var grupper = [
-	new Gruppe ("Gruppe 1", 14, "Dette er en test beskrivelse"),
-	new Gruppe ("Kiwis gruppe", 25, "Kiwis gruppe"),
-	new Gruppe ("Gruppe 3", 50,"N/A"),
-	new Gruppe ("Remas gruppe", 1,"REMA!!!!"),
-	new Gruppe ("Coops gruppe", 8,"Coop > rema"),
-	new Gruppe ("Østlands gruppen", 13,"For alle de butikkene på østlandet"),
-	new Gruppe ("Gruppe 0111", 11,"The binary group"),
-	new Gruppe ("Gruppe 8", 36,"")
+	new Gruppe (0,"Gruppe 1", 14, "Dette er en test beskrivelse"),
+	new Gruppe (1,"Kiwis gruppe", 25, "Kiwis gruppe"),
+	new Gruppe (2,"Gruppe 3", 50,"N/A"),
+	new Gruppe (3,"Remas gruppe", 1,"REMA!!!!"),
+	new Gruppe (4,"Coops gruppe", 8,"Coop > rema"),
+	new Gruppe (5,"Østlands gruppen", 13,"For alle de butikkene på østlandet"),
+	new Gruppe (6,"Gruppe 0111", 11,"The binary group"),
+	new Gruppe (7,"Gruppe 8", 36,"")
 ]
-
-module.exports = {
-	grupper: grupper
+var id = Observable('');
+getId = function(e)
+{
+  id.value = e.data.body;
+  console.log(id.value)
 }
 
 // Code for getting RSS
-// var Observable = require("FuseJS/Observable");
-// var data = Observable();
-// fetch('https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://www.dagbladet.no/rss/nyheter/').then(function(response) { return response.json(); }).then(function(responseObject) { data.value = responseObject; });
-// module.exports = {
-//     dataSource: data
-// };
+var data = Observable();
+fetch('http://az664292.vo.msecnd.net/files/P6FteBeij9A7jTXL-edgenavresponse.json').then(function(response) { return response.json(); }).then(function(responseObject) { data.value = responseObject; });
+module.exports = {
+    dataSource: data
+};
+
+module.exports = {
+	grupper: grupper,
+  getId : getId,
+  data : data
+}
