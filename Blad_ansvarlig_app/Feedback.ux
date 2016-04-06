@@ -1,0 +1,3 @@
+<Panel ux:Class="Feedback">
+    <Image ux:Name="highfive" File="Assets/DunGud.png" />
+</Panel>

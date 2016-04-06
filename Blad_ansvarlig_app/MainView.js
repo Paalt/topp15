@@ -18,17 +18,6 @@ module.exports = {
 	items: items
 };
 
-var Observable = require("FuseJS/Observable");
-
-var done = 25;
-var goal = 150;
-var progress = (parseInt((done / goal) * 100));
-
-var data = Observable(progress);
-
-module.exports = {
-    data: data
-};
 
 //Test Grupper
 function Gruppe(id, navn, medlemmer, beskrivelse)
