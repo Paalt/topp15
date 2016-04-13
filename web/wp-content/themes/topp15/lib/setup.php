@@ -107,8 +107,154 @@ function assets() {
 		'sage/js',
 		'themeUri',
 		array(
-			'pages' => trailingslashit( get_template_directory_uri() ) . 'pages/'
+			'pages' => trailingslashit( get_template_directory_uri() ) . 'pages/',
+			'templates' => trailingslashit( get_template_directory_uri() ) . 'templates/'
 			)
 	);
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);
+
+/**
+ * Add custom post types
+ */ 
+ 
+function register_custom_post_types() {
+	register_post_type( 'Nyheter', array(
+  		'labels'	=>	array(
+		'all_items'           => 'Nyhet',
+		'menu_name'	      		=>	'Nyheter',
+		'singular_name'       =>	'Nyhet',
+		'edit_item'           =>	'Rediger nyhet',
+		'new_item'            =>	'Ny nyhet',
+		'view_item'           =>	'Vis nyheter',
+		'items_archive'       =>	'Nyheter arkiv',
+		'search_items'        =>	'Søk i nyheter',
+		'not_found'	      		=>	'Ingen nyheter funnet',
+		'not_found_in_trash'  =>	'Ingen nyheter funnet i søppelkurven'
+	),
+	'supports'			=>	array( 'title', 'editor', 'author', 'revisions' ),
+	'menu_position'	=>	5,
+	'public'				=>	true,
+	'hierarchical' => true,
+	'taxonomies' => array( 'post_tag', 'category' )
+));
+
+register_post_type( 'Nyheter', array(
+  		'labels'	=>	array(
+		'all_items'           => 'Nyhet',
+		'menu_name'	      		=>	'Nyheter',
+		'singular_name'       =>	'Nyhet',
+		'edit_item'           =>	'Rediger nyhet',
+		'new_item'            =>	'Ny nyhet',
+		'view_item'           =>	'Vis nyheter',
+		'items_archive'       =>	'Nyheter arkiv',
+		'search_items'        =>	'Søk i nyheter',
+		'not_found'	      		=>	'Ingen nyheter funnet',
+		'not_found_in_trash'  =>	'Ingen nyheter funnet i søppelkurven'
+	),
+	'supports'			=>	array( 'title', 'editor', 'author', 'revisions' ),
+	'menu_position'	=>	5,
+	'public'				=>	true,
+	'hierarchical' => true,
+	'taxonomies' => array( 'post_tag', 'category' )
+));
+
+register_post_type( 'Barneboker', array(
+  		'labels'	=>	array(
+		'all_items'           => 'Barnebok',
+		'menu_name'	      		=>	'Barnebøker',
+		'singular_name'       =>	'Barnebok',
+		'edit_item'           =>	'Rediger barnebok',
+		'new_item'            =>	'Ny barnebok',
+		'view_item'           =>	'Vis barnebøker',
+		'items_archive'       =>	'Barnebøker arkiv',
+		'search_items'        =>	'Søk i nyheter',
+		'not_found'	      		=>	'Ingen barnebøker funnet',
+		'not_found_in_trash'  =>	'Ingen barnebøker funnet i søppelkurven'
+	),
+	'supports'			=>	array( 'title', 'editor', 'author', 'revisions' ),
+	'menu_position'	=>	5,
+	'public'				=>	true,
+	'hierarchical' => true,
+	'taxonomies' => array( 'post_tag', 'category' )
+));
+
+register_post_type( 'Topp15', array(
+  		'labels'	=>	array(
+		'all_items'           => 'Topplistebok ',
+		'menu_name'	      	  =>	'Topp 15',
+		'singular_name'       =>	'Topplistebok',
+		'edit_item'           =>	'Rediger topplistebok',
+		'new_item'            =>	'Ny topplistebok',
+		'view_item'           =>	'Vis topplistebøker',
+		'items_archive'       =>	'Topplistebøker arkiv',
+		'search_items'        =>	'Søk i topplistebøker',
+		'not_found'	      		=>	'Ingen topplistebøker funnet',
+		'not_found_in_trash'  =>	'Ingen topplistebøker funnet i søppelkurven'
+	),
+	'supports'			=>	array( 'title', 'editor', 'author', 'revisions', 'thumbnail', 'custom-fields' ),
+	'menu_position'	=>	5,
+	'public'				=>	true,
+	'publicly_queryable' => true,
+	'show_ui'            => true,
+	'show_in_menu'       => true,
+	'show_in_rest'       => true,
+	'query_var'          => true,
+	'capability_type'    => 'post',
+	'hierarchical' => true,
+	'taxonomies' => array( 'post_tag', 'category' )
+));
+}
+
+add_action( 'init', __NAMESPACE__ . '\\register_custom_post_types' );
+
+add_post_meta( 1, 'starship', 47 );
+
+/**
+ * Add the field "spaceship" to REST API responses for posts read and write
+ */
+add_action( 'rest_api_init', __NAMESPACE__ . '\\slug_register_spaceship' );
+function slug_register_spaceship() {
+    register_rest_field( 'post',
+        'starship',
+        array(
+            'get_callback'    => 'slug_get_spaceship',
+            'update_callback' => 'slug_update_spaceship',
+            'schema'          => null,
+        )
+    );
+}
+/**
+ * Handler for getting custom field data.
+ *
+ * @since 0.1.0
+ *
+ * @param array $object The object from the response
+ * @param string $field_name Name of field
+ * @param WP_REST_Request $request Current request
+ *
+ * @return mixed
+ */
+function slug_get_spaceship( $object, $field_name, $request ) {
+    return get_post_meta( $object[ 'id' ], $field_name );
+}
+
+/**
+ * Handler for updating custom field data.
+ *
+ * @since 0.1.0
+ *
+ * @param mixed $value The value of the field
+ * @param object $object The object from the response
+ * @param string $field_name Name of field
+ *
+ * @return bool|int
+ */
+function slug_update_spaceship( $value, $object, $field_name ) {
+    if ( ! $value || ! is_string( $value ) ) {
+        return;
+    }
+
+    return update_post_meta( $object->ID, $field_name, strip_tags( $value ) );
+
+}

@@ -10,7 +10,8 @@
     "angular": "^1.4.9",
     "angular-formly": "^7.3.9",
     "angular-material": "^1.0.4",
-    "angular-route": "^1.5.1"
+    "angular-route": "^1.5.1",
+    "normalize-css": "^4.0.0"
   },
   "overrides": {}
 }

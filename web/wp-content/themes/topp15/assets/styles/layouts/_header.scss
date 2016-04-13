@@ -1,0 +1,81 @@
+/*------------------------------------*\
+		#HEADER-SITE-BRANDING
+\*------------------------------------*/
+
+.header__site-logo {
+	padding: 1rem 1.5rem 1rem 1.5rem;
+}
+
+#logo {
+  width: 112px;
+  @include bp(small-screen) {
+    width: 112px;
+  	}
+  @include bp(small-screen-retina) {
+    width: 112px;
+  }
+  @include bp(medium-screen) {
+    width: 112px;
+  }
+  @include bp(medium-screen-retina) {
+    width: 112px;
+  }
+  @include bp(large-screen) {
+    width: 112px;
+  }
+  @include bp(large-screen-retina) {
+    width: 112px;
+  }
+}
+
+/*------------------------------------*\
+		#HEADER-PAGE-HEADER
+\*------------------------------------*/
+
+.page-header {
+	position: relative;
+}
+
+.page-header__background {
+	@include bgimage(2016,0,4,top-banner-bg);
+	background-repeat:repeat-x;
+	height: 390px;
+}
+
+.page-header__background--transparent {
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.75);
+	position: relative;
+}
+
+.page-header__logo {
+	margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+	width: 600px;
+	height: 200px;
+	background-color: rgba(0, 0, 0, 0.9);
+}
+
+.page-header__logo-image {
+	width: 75%;
+	margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+/*------------------------------------*\
+		#HEADER-NEWSLETTER
+\*------------------------------------*/
+
+.page-header__newsletter {
+	text-align: center;
+	background-color: rgba(255, 255, 255, 0.75);
+	position: absolute;
+	bottom: 175px;
+	width: 100%;
+	padding-bottom: 1em;
+}

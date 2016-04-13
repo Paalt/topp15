@@ -1,0 +1,208 @@
+<App Theme="Basic">
+	<Panel>
+
+		<iOS.StatusBarConfig Style="Light" />
+		<FileImageSource File="Assets/avatar1.png" ux:Key="home1"/>
+		<FileImageSource File="Assets/avatar2.png" ux:Key="home2"/>
+		<FileImageSource File="Assets/avatar3.png" ux:Key="home3"/>
+		<ux:Include File="Resources.ux" />
+		<ux:Include File="Order.ux" />
+		<!-- <ux:Include File="Groups.ux" /> -->
+
+		<!-- Login screen -->
+		<UserEvent Name="ToggleLoggedIn" />
+		
+		<Panel>
+			<Feedback />
+			<JavaScript File="MainView.js" />
+			
+			<!-- Code for showing RSS -->
+			<!-- <ScrollView>
+				<StackPanel Alignment="Top">
+					<Panel Height="7" />
+					<Text Value="ajsidsaijdi" />
+					<Each Items="{dataSource.responseData.feed.entries}">
+						<Text Value="{title}" />
+						<Text Value="{description}" />
+					</Each>
+				</StackPanel>
+			</ScrollView> -->
+
+			<Panel ux:Name="loggedInView" Opacity="0" IsEnabled="false" TransformOrigin="Center">
+				<Rectangle Layer="Background">
+					<ImageFill File="Assets/bglogin.png"/>
+				</Rectangle>
+				
+				<!-- Menu -->
+				<Panel ux:Name="WobbleButton" TransformOrigin="Center">
+				
+					<WhileTrue ux:Name="ShowMenu">
+						<!-- <WobbleButton Width="300" Height="300" Alignment="BottomRight" Offset="100,100" /> -->
+						<Change WobbleButton.Width="300" />
+						<Change WobbleButton.Height="300" />
+						<Change WobbleButton.Alignment="BottomRight" />
+						<Change WobbleButton.Offset="100,100" />
+					</WhileTrue>
+					
+					<ClockIcon ux:Name="icon1" Margin="40,30,0,20" Width="30" Height="30" Alignment="Left" Opacity="0" IsEnabled="false">
+						<Translation ux:Name="trans1" X="1.5" RelativeTo="Size" />
+						<Clicked>
+							<Set BestillBoker.IsEnabled="true" />
+							<Set BestillBoker.Opacity="1" />
+							<Set GroupScreen.IsEnabled="false" />
+							<Set GroupScreen.Opacity="0" />
+						</Clicked>
+					</ClockIcon>
+					<TalkIcon ux:Name="icon2" Margin="70,70,0,0" Width="30" Height="30" Alignment="TopLeft" Opacity="0" IsEnabled="false">
+						<Translation ux:Name="trans2" X="1" Y="1" RelativeTo="Size" />
+						<Clicked>
+							<Set GroupScreen.IsEnabled="true" />
+							<Set GroupScreen.Opacity="1" />
+							<Set BestillBoker.IsEnabled="false" />
+							<Set BestillBoker.Opacity="0" />
+						</Clicked>
+					</TalkIcon>
+					<LocationIcon ux:Name="icon3" Margin="30,40,20,0" Width="30" Height="30" Alignment="Top" Opacity="0" IsEnabled="false">
+						<Translation ux:Name="trans3" Y="1.5" RelativeTo="Size" />
+					</LocationIcon>
+
+					<Circle ux:Name="overlayCircle" Fill="#FF0057" Opacity="1" Width="20%" Height="20%" Alignment="Center">
+						<Cross ux:Name="cross" />
+						<Clicked>
+							<Toggle Target="expanded" />
+						</Clicked>
+					</Circle>
+					<Circle ux:Name="circle" Fill="#FF4081" Width="20%" Height="20%" />
+
+					<WhileTrue ux:Name="enableOptions">
+						<Change icon1.IsEnabled="true" />
+						<Change icon2.IsEnabled="true" />
+						<Change icon3.IsEnabled="true" />
+					</WhileTrue>
+
+					<WhileTrue ux:Name="expanded">
+						<Change circle.Height="100" Easing="CubicInOut" Duration="0.2" DelayBack="0"/>
+						<Change circle.Width="100" Easing="CubicInOut" Duration="0.2"  DelayBack="0"/>
+
+						<Change enableOptions.Value="true" Delay="0.1" />
+						<Change overlayCircle.Opacity="1" Delay="0.1" Duration="0.1" />
+						<Rotate Target="cross" Degrees="-45" Duration="0.2" Easing="CubicInOut" />
+
+						<Change trans1.X="0" Delay="0" Duration="0.4" Easing="BounceOut" EasingBack="QuadraticInOut" DurationBack="0.2"    DelayBack="0"/>
+						<Change trans2.X="0" Delay="0.05" Duration="0.4" Easing="BounceOut" EasingBack="QuadraticInOut" DurationBack="0.2" DelayBack="0"/>
+						<Change trans2.Y="0" Delay="0.05" Duration="0.4" Easing="BounceOut" EasingBack="QuadraticInOut" DurationBack="0.2" DelayBack="0"/>
+						<Change trans3.Y="0" Delay="0.1" Duration="0.4" Easing="BounceOut" EasingBack="QuadraticInOut" DurationBack="0.2"  DelayBack="0"/>
+
+						<Change icon1.Opacity="1" Delay="0.1" Duration="0.1" Easing="QuadraticInOut" DelayBack="0"/>
+						<Change icon2.Opacity="1" Delay="0.1" Duration="0.1" Easing="QuadraticInOut" DelayBack="0"/>
+						<Change icon3.Opacity="1" Delay="0.1" Duration="0.1" Easing="QuadraticInOut" DelayBack="0"/>
+					</WhileTrue>
+				</Panel>
+
+				<!-- Bestill Bøker -->
+				<Panel ux:Name="BestillBoker" IsEnabled="false" Opacity="0">
+					<OrderBar />
+					<Order />
+				</Panel>
+				
+				<!-- Gruppe liste -->
+				<Panel ux:Name="GroupScreen" IsEnabled="false" Opacity="0">
+					<StackPanel Dock="Top">
+						<Text FontSize="22" Alignment="VerticalCenter" TextAlignment="Center" Value="Grupper" Padding="2" TextColor="#FFF" />
+						<Rectangle Height="1" Margin="0,0,0,0" Fill="#333c48" />
+					</StackPanel>
+					<ScrollView Margin="0,40,0,0" ux:Name="Grupper">
+						<StackPanel>
+							<!-- <Each Items="{grupper}">
+								<Rectangle Height="50" Width="100%" Margin="0,0,0,10" Fill="#f00" CornerRadius="10">
+									<Text Value="{navn}" Padding="10,0,0,0"/>
+									<StackPanel Orientation="Horizontal" Alignment="Bottom" Padding="10,0,0,0">
+										<Text Value="{medlemmer}" />
+										<Text Value="/50" />
+									</StackPanel>
+								</Rectangle>
+							</Each> -->
+							<Each Items="{data.responseData}">
+								<Rectangle Height="50" Width="100%" Margin="0,0,0,10" Fill="#f00" CornerRadius="10" Clicked="{getId}">
+									<Text Value="{headline}" Padding="10,0,0,0"/>
+								</Rectangle>
+							</Each>
+						</StackPanel>
+					</ScrollView>
+				</Panel>
+			</Panel>
+
+			<!-- Animations -->
+			<WhileTrue ux:Name="loading">
+				<Change changeWidth.Value="true" DelayBack="0"/>
+				<Change loadCircle.Value="true" DelayBack="0"/>
+
+				<Change scaleAndFade.Value="true" Delay="0.5" DelayBack="0"/>
+				<Change showLoggedIn.Value="true" Delay="0.9" />
+			</WhileTrue>
+			<WhileTrue ux:Name="changeWidth">
+			</WhileTrue>
+			<WhileTrue ux:Name="loadCircle">
+				<Change text.Opacity="0" Duration="0.2" DurationBack="0"/>
+				<Change image.Opacity="0" Duration="0.2" DurationBack="0" />
+				<Change loadingCircle.Opacity="1" Duration="0.3" Delay="0.2" DelayBack="0" DurationBack="0"/>
+				<Spin Target="loadingCircle" Frequency="2"/>
+				<Cycle Target="loadingCircle.LengthAngleDegrees" Low="30" High="300" Frequency="0.7" />
+			</WhileTrue>
+			<WhileTrue ux:Name="scaleAndFade">
+				<Change loadingCirclePanel.Opacity="0" Duration="0.1" />
+				<Change loadingButton.Opacity="1" Duration="0.01" />
+
+				<Change loginButtonScaling.Factor="1" Delay="0.01" Duration="0.7" DurationBack="0" Easing="ExponentialInOut"/>
+			</WhileTrue>
+			<WhileTrue ux:Name="showLoggedIn">
+				<Change loggedInView.Opacity="1" Delay="0.1" Duration="0.65" DurationBack="0.35" DelayBack="0.3" Easing="CubicInOut"/>
+
+				<Change ShowMenu.Value="true" />
+				<RaiseUserEvent Name="ToggleLoggedIn" />
+
+				<Change loggedInView.IsEnabled="true" />
+			</WhileTrue>
+
+			<!-- Login screen -->
+			<Grid ux:Name="loggedOutView" RowData="1.5*,auto,1*" Padding="40,0">
+				<Rectangle Layer="Background">
+					<ImageFill File="Assets/bglogin.png"/>
+				</Rectangle>
+
+				<Panel Row="2" Width="150" Height="150">
+					<Text ux:Name="text" Alignment="TopCenter" Value="Login" FontSize="32" TextColor="#FFF"/>
+					<Image ux:Name="image" File="Assets/markLogin.png" Height="60"/>
+					<Panel ux:Name="loadingCirclePanel">
+						<Circle ux:Name="loadingCircle" Width="70%" Height="70%" Opacity="0" StartAngleDegrees="0" LengthAngleDegrees="90">
+							<Stroke Width="1" Brush="#fff" />
+						</Circle>
+					</Panel>
+					<Clicked>
+						<Toggle Target="loading" />
+					</Clicked>
+					<Panel ux:Name="loadingButton" Opacity="0" Width="1320" Height="1320" Alignment="Center">
+						<Circle Fill="#FF4081"/>
+						<Scaling ux:Name="loginButtonScaling" Factor="0.04545" />
+					</Panel>
+				</Panel>
+
+				<Image Row="0" File="Assets/mb2.png" Margin="40"/>
+
+				<Grid Row="1" Padding="0,20" RowCount="2" Columns="auto,1*" Height="160">
+					<Rectangle Row="0" Column="0" Alignment="Top" ColumnSpan="2" Height="1" Fill="#FFF"/>
+					<Image     Row="0" Column="0" File="Assets/user_icon.png" Width="20" Height="20" Margin="10,0,30,0" Alignment="Left"/>
+					<TextEdit  Row="0" Column="1" Value="Username" TextColor="#fff" Alignment="CenterLeft"/>
+					<Rectangle Row="0" Column="0" Alignment="Bottom" ColumnSpan="2" Height="1" Fill="#fff"/>
+
+					<WhileKeyboardVisible>
+        				<Move Y="-1" RelativeTo="Keyboard" />
+    				</WhileKeyboardVisible>
+					<Image     Row="1" Column="0" File="Assets/password_icon.png" Width="20" Height="20" Margin="10,0,30,0" Alignment="Left"/>
+					<TextInput Row="1" Column="1"  TextColor="#fff" IsPassword="true"/>
+					<Rectangle Row="1" Column="0" Alignment="Bottom" ColumnSpan="2" Height="1" Fill="#fff"/>
+				</Grid>
+			</Grid>
+		</Panel>
+	</Panel>
+</App>

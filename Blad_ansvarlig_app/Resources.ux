@@ -1,0 +1,14 @@
+<Style>
+	<Panel ux:Class="Cross" Width="50" Height="50" Alignment="Center" TransformOrigin="Center">
+		<Rectangle Width="2" Height="35%" Fill="#fff9" />
+		<Rectangle Height="2" Width="35%" Fill="#fff9" />
+	</Panel>
+
+	<Image ux:Class="ClockIcon" File="Assets/icon_clock.png" />
+	<Image ux:Class="TalkIcon" File="Assets/icon_talk.png" />
+	<Image ux:Class="LocationIcon" File="Assets/icon_location.png" />
+	<Image ux:Class="SunnyIcon" File="Assets/icon_sunny.png" />
+ 	<Image ux:Class="SmallAvatarIcon" File="Assets/small_avatar.png" />
+	<Image ux:Class="HamburgerIcon" File="Assets/icon_hamburger.png" />
+
+</Style>

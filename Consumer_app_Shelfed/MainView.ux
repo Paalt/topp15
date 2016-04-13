@@ -1,0 +1,310 @@
+<App Theme="Basic">
+	<iOS.StatusBarConfig ux:Name="statusBarConfig" Style="Dark"/>
+	<EdgeNavigator ux:Name="EdgeNavigator">
+		<!-- Menu on the left edge -->
+		<Sidebar Width="87%" ux:Name="menu" EdgeNavigation.Edge="Left">
+			<ActivatingAnimation>
+				<Change mainAppTranslation.X="0" />
+			</ActivatingAnimation>
+		</Sidebar>
+
+		<DockPanel Background="#fff">
+			<!-- TODO: What is this -->
+			<!-- Use this to move the main app area with the side menu -->
+			<Translation ux:Name="mainAppTranslation" />
+			<StatusBarBackground Dock="Top" />
+			<BottomFrameBackground Dock="Bottom" />
+
+			<!-- Start of Top/Side menu -->
+			<StackPanel Dock="Top">
+				<Grid ColumnData="auto,1*,auto"  Background="White">
+					<Panel Margin="7,5,5,5" Height="50" Width="32" HitTestMode="LocalBounds">
+						<Clicked>
+							<Set EdgeNavigator.Active="menu" />
+						</Clicked>
+						<Rectangle ux:Name="topRectangle" Height="2" Width="26" Fill="#000">
+							<Translation Y="-9" ux:Name="topMenuTranslation" />
+							<Rotation ux:Name="topMenuRotation" />
+						</Rectangle>
+						<Rectangle ux:Name="middleRectangle" Height="2" Width="26" Fill="#000" />
+						<Rectangle ux:Name="bottomRectangle" Height="2" Width="26" Fill="#000">
+							<Translation Y="9" ux:Name="bottomMenuTranslation" />
+							<Rotation ux:Name="bottomMenuRotation" />
+						</Rectangle>
+					</Panel>
+
+					<Text FontSize="22" Alignment="VerticalCenter" TextAlignment="Center"
+						Value="Topp 15" Padding="2">
+						<Font File="assets/fonts/AlegreyaSans-Bold.otf" />
+					</Text>
+
+					<Panel Margin="5,5,7,5" Height="32" Width="32" HitTestMode="LocalBounds">
+						<Clicked>
+							<DebugAction Message="Search clicked" />
+						</Clicked>
+						<Circle Height="20" Width="20">
+							<Stroke Width="2" Brush="#000" />
+						</Circle>
+						<Rectangle Width="7" Height="3" Fill="#000">
+							<Translation X="8" Y="8" />
+							<Rotation Degrees="45" />
+						</Rectangle>
+					</Panel>
+				</Grid>
+				<Rectangle Height="1" Margin="0,0,0,0" Fill="#333c48" />
+			</StackPanel>
+			<!-- End of Top/Side menu -->
+
+			<Style>
+				<Button ux:InheritStyle="false" ClipToBounds="false" Margin="0,0,0,4" Background="#bdc3c7" Name="self">
+					<Fuse.BasicTheme.ButtonText TextColor="#FFF" Font="RobotoMedium" Value="{Property self.Text}" TextAlignment="Center" />
+				</Button>
+			</Style>
+
+			<!-- Start of current page bar -->
+			<StackPanel Dock="Top" Background="#bdc3c7">
+  <MultiLayoutPanel Height="50" ux:Name="tabBar">
+    <GridLayout ColumnCount="3" Rows="1*" />
+    <Panel ux:Name="page1Tab">
+      <Placeholder>
+        <Rectangle ux:Name="indicator" Alignment="Bottom" Height="4" Fill="#6c7a89">
+          <LayoutAnimation>
+            <Move RelativeTo="LayoutChange" X="1" Duration="0.4" Easing="BackIn" />
+          </LayoutAnimation>
+        </Rectangle>
+      </Placeholder>
+      <Button Text="Topp 15">
+        <Clicked>
+          <Set navigation.Active="page1" />
+        </Clicked>
+      </Button>
+    </Panel>
+    <Panel ux:Name="page2Tab">
+      <Placeholder  Target="indicator"/>
+      <Button Text="Barnebøker">
+        <Clicked>
+          <Set navigation.Active="page2" />
+        </Clicked>
+      </Button>
+    </Panel>
+    <!-- Real Nyheter -->
+    <!-- <Panel ux:Name="page3Tab">
+         <Placeholder Target="indicator"/>
+         <Button Text="Nyheter">
+         <Clicked>
+         <Set navigation.Active="page3" />
+         </Clicked>
+         </Button>
+         </Panel> -->
+    <!-- Remove this when real Nyheter is implemented -->
+    <Panel>
+      <Placeholder Target="indicator" />
+      <Button Text="Nyheter" />
+    </Panel>
+  </MultiLayoutPanel>
+</StackPanel>
+			<!-- End of current page bar -->
+
+			<!-- Start of MB -->
+			<PageControl ux:Name="navigation">
+  <Text ux:Class="WelcomeText" FontSize="30" Alignment="Center"/>
+  <Page ux:Name="page1">
+    <WhileActive Threshold="0.5">
+      <Set tabBar.LayoutElement="page1Tab" />
+    </WhileActive>
+    <ScrollView>
+      <StackPanel>
+        <Panel Height="175" Background="#eee" Alignment="Top">
+          <Image File="Assets/Bok/Long.jpg" StretchMode="UniformToFill" />
+          <Clicked>
+            <Set navigation.Active="page3" />
+          </Clicked>
+        </Panel>
+        
+        <Grid RowCount="3" ColumnCount="2">
+          <Rectangle Row="0" Column="1" Width="100%" Height="200">
+            <Image File="Assets/Bok/0.jpg" StretchMode="UniformToFill" />
+            <Clicked>
+              <Set navigation.Active="page3" />
+            </Clicked>
+          </Rectangle>
+          <Rectangle Row="0" Column="0" Width="100%" Height="200">
+            <Image File="Assets/Bok/1.jpg" StretchMode="UniformToFill" />
+            <Clicked>
+              <Set navigation.Active="page3" />
+            </Clicked>
+          </Rectangle>
+          <Rectangle Row="1" Column="0" Width="100%" Height="200">
+            <Image File="Assets/Bok/3.jpg" StretchMode="UniformToFill" />
+            <Clicked>
+              <Set navigation.Active="page3" />
+            </Clicked>
+          </Rectangle>
+          <Rectangle Row="1" Column="1" Width="100%" Height="200">
+            <Image File="Assets/Bok/4.jpg" StretchMode="UniformToFill" />
+            <Clicked>
+              <Set navigation.Active="page3" />
+            </Clicked>
+          </Rectangle>
+          <Rectangle Row="2" Column="1" Width="100%" Height="200">
+            <Image File="Assets/Bok/5.jpg" StretchMode="UniformToFill" />
+            <Clicked>
+              <Set navigation.Active="page3" />
+            </Clicked>
+          </Rectangle>
+          <Rectangle Row="2" Column="0" Width="100%" Height="200">
+            <Image File="Assets/Bok/2.jpg" StretchMode="UniformToFill" />
+            <Clicked>
+              <Set navigation.Active="page3" />
+            </Clicked>
+          </Rectangle>
+        </Grid>
+        <!-- </ScrollView> -->
+      </StackPanel>
+    </ScrollView>
+  </Page>
+  <Page ux:Name="page2">
+    <WhileActive Threshold="0.5">
+      <Set tabBar.LayoutElement="page2Tab" />
+    </WhileActive>
+    <ScrollView>
+      <StackPanel>
+        <Panel Height="175" Background="#eee" Alignment="Top">
+          <Image File="Assets/Bok/B0.jpg" StretchMode="UniformToFill" />
+          <Clicked>
+            <Set navigation.Active="page3" />
+          </Clicked>
+        </Panel>
+        
+        <Grid RowCount="3" ColumnCount="3">
+          <Rectangle Row="0" Column="1" Fill="Red" Width="100%" Height="175">
+            <Image File="Assets/Bok/B1.jpg" StretchMode="UniformToFill" />
+            <Clicked>
+              <Set navigation.Active="page3" />
+            </Clicked>
+          </Rectangle>
+          <Rectangle Row="0" Column="0" Fill="Blue" Width="100%" Height="175">
+            <Image File="Assets/Bok/B2.jpg" StretchMode="UniformToFill" />
+            <Clicked>
+              <Set navigation.Active="page3" />
+            </Clicked>
+          </Rectangle>
+          <Rectangle Row="0" Column="2" Fill="Purple" Width="100%" Height="175">
+            <Image File="Assets/Bok/B3.jpg" StretchMode="UniformToFill" />
+            <Clicked>
+              <Set navigation.Active="page3" />
+            </Clicked>
+          </Rectangle>
+          <Rectangle Row="1" Column="0" Fill="Green" Width="100%" Height="175">
+            <Image File="Assets/Bok/B4.jpg" StretchMode="UniformToFill" />
+            <Clicked>
+              <Set navigation.Active="page3" />
+            </Clicked>
+          </Rectangle>
+          <Rectangle Row="1" Column="1" Fill="Yellow" Width="100%" Height="175">
+            <Image File="Assets/Bok/B5.jpg" StretchMode="UniformToFill" />
+            <Clicked>
+              <Set navigation.Active="page3" />
+            </Clicked>
+          </Rectangle>
+          <Rectangle Row="1" Column="2" Fill="Red" Width="100%" Height="175">
+            <Image File="Assets/Bok/B6.jpg" StretchMode="UniformToFill" />
+            <Clicked>
+              <Set navigation.Active="page3" />
+            </Clicked>
+          </Rectangle>
+          <Rectangle Row="2" Column="1" Fill="Black" Width="100%" Height="175">
+            <Image File="Assets/Bok/B9.jpg" StretchMode="UniformToFill" />
+            <Clicked>
+              <Set navigation.Active="page3" />
+            </Clicked>
+          </Rectangle>
+          <Rectangle Row="2" Column="0" Fill="Purple" Width="100%" Height="175">
+            <Image File="Assets/Bok/B7.jpg" StretchMode="UniformToFill" />
+            <Clicked>
+              <Set navigation.Active="page3" />
+            </Clicked>
+          </Rectangle>
+          <Rectangle Row="2" Column="2" Fill="Blue" Width="100%" Height="175">
+            <Image File="Assets/Bok/B8.jpg" StretchMode="UniformToFill" />
+            <Clicked>
+              <Set navigation.Active="page3" />
+            </Clicked>
+          </Rectangle>
+        </Grid>
+        <!-- </ScrollView> -->
+      </StackPanel>
+    </ScrollView>
+  </Page>
+  <Page ux:Name="page3">
+    <MultiLayoutPanel ux:Name="headerPanel" HitTestMode="None" Alignment="Top" Height="260">
+      <!-- <Placeholder ux:Name="overBackgroundLayout">
+           <Image ux:Name="facePicture"  File="Assets/avatar.png" Alignment="BottomCenter" Width="150" Height="150" Offset="0,75"/>
+           </Placeholder> -->
+      
+      <StackPanel ux:Name="textPanel" Alignment="Center">
+        <Style>
+          <Text TextColor="#FFF" TextAlignment="Center"/>
+        </Style>
+        <StatusBarBackground Margin="0,0,0,15"/>
+        <Text ux:Name="topText" FontSize="18" Margin="5">Stormens søster</Text>
+        <Text ux:Name="bottomText" FontSize="14">Riley, Lucinda</Text>
+      </StackPanel>
+      
+      <Panel ux:Name="backgroundPicture" TransformOrigin="Anchor" Alignment="Top" Anchor="50%,0%" Background="Black">
+        <Image File="Assets/Bok/2.jpg" StretchMode="UniformToFill" Background="Black"/>
+      </Panel>
+      
+      <!-- <Placeholder ux:Name="underBackgroundLayout" Target="facePicture"/> -->
+    </MultiLayoutPanel>
+    <ScrollView>
+      <!-- <ScrollingAnimation From="0" To="150">
+	        <Scale Target="facePicture" Factor=".6" Easing="QuadraticInOut" />
+          <Move Target="facePicture" RelativeTo="Size" Y="-0.8" Easing="QuadraticIn"/>
+      </ScrollingAnimation> -->
+      <!-- <ScrollingAnimation From="125" To="0">
+        <Set headerPanel.LayoutElement="overBackgroundLayout"/>
+      </ScrollingAnimation>
+      <ScrollingAnimation From="125" To="170">
+        <Set headerPanel.LayoutElement="underBackgroundLayout"/>
+      </ScrollingAnimation>
+      <ScrollingAnimation From="150" To="1000"> -->
+        <!-- <Move Target="facePicture" Y="-850" Easing="Linear" /> -->
+      <!-- </ScrollingAnimation> -->
+	   
+      <ScrollingAnimation From="0" To="260">
+        <Move Target="backgroundPicture" RelativeTo="Size" Y="-0.7" Easing="QuadraticOut"/>
+        <Move Target="textPanel" RelativeTo="ParentSize" Y="-0.35" Easing="QuadraticOut"/>
+        <Move Target="bottomText" RelativeTo="ParentSize" Y="-0.3" Easing="QuadraticOut" />
+        <Change bottomText.Opacity="0" Easing="QuadraticOut"/>
+      </ScrollingAnimation>
+      <ScrollingAnimation From="50" To="250">
+        <Change statusBarConfig.Style="Light" />
+      </ScrollingAnimation>
+      <ScrollingAnimation From="0" To="-1000">
+        <Scale Target="backgroundPicture" Factor="4" />
+        <!-- <Move Target="facePicture" Y="800"/> -->
+      </ScrollingAnimation>
+	   
+      <StackPanel Padding="0,275,0,0">
+        <Style>
+          <Text TextColor="#355566" TextWrapping="Wrap"/>
+        </Style>
+	    
+        <Text TextAlignment="Center" FontSize="20" Margin="70,0,70,40">
+          Ny bok fra forfatteren av bestselgeren ORKIDEENS HEMMELIGHET, MIDNATTSROSEN og DE SYV SØSTRE
+        </Text>
+        <Rectangle Height="2" Margin="50,0" Fill="#E1E1E1"/>
+	     
+        <Text FontSize="16" Margin="50,40,50,0">
+          Stormens søster er den andre boken i den spennende og fascinerende serien om De syv søstre - og handlingen lagt til Norge. Ally er en dyktig seiler og skal konkurrere i en av verdens mest utfordrende regattaer når hun får beskjed om adoptivfarens brå og mystiske død. I hui og hast reiser hun tilbake til barndomshjemmet, det vakre slottet ved Genevesjøen, for å treffe sine søstre. Hun har også, uten at søstrene vet det, innledet et kjærlighetsforhold ... I etterkant av de opprørende hendelsene forlater Ally sjølivet for å følge sporene adoptivfaren har etterlatt henne slik at hun kan finne tilbake til sitt biologiske opphav. Sporene fører henne til Norge, og her oppdager hun at hennes egen historie er nært knyttet historien til en ung og ukjent sangerinne, Anna Landvik. Hun levde for over hundre år siden og var med i den første oppsetningen av Ibsens Peer Gynt, til Griegs berømte musikk. Vi får ta del i Annas dramatiske reise fra en liten bygd i Telemark, via Christiania og videre ut i verden. 
+        </Text>
+      </StackPanel>
+    </ScrollView>
+  </Page>
+</PageControl>
+
+    		<!-- End of MB -->
+		</DockPanel>
+	</EdgeNavigator>
+</App>

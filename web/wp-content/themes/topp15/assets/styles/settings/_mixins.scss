@@ -7,3 +7,74 @@
 	font-weight: $font-weight;
 }
 
+/* Mixin to dynamically set the page url
+ * Useful if URL needs to be changed.
+ * Using to variables to express the month, as SASS does not seem to support leading zeroes when passing them with @include command.
+*/
+
+@mixin bgimage($year, $monthDigit1, $monthDigit2, $name) {
+ 	$url:"../images/#{$name}.png";
+	$pageurl:"#{$siteurl}/wp-content/uploads/#{$year}/#{$monthDigit1}#{$monthDigit2}/#{$name}.jpg";
+	background: url($pageurl);
+}
+
+
+/* Responsive retina ready images usage:
+ *	#logo {
+ *	  width: 33.33%;
+ *	  @include bp(small-screen-retina) {
+ *		width: 100%;
+ *	  }
+ *	}
+*/
+
+@mixin bp($point) {
+	
+	/* For non-retina based devices that have a smaller screen */
+	@if $point == small-screen {
+		@media only screen and #{$small-screen} { @content; }
+	}
+	
+	/* Retina enabled devices with smaller screen */
+	@else if $point == small-screen-retina {
+		@media
+		only screen and #{$webkit-min-pixel-ratio} and #{$small-screen},
+		only screen and #{$mozilla-min-pixel-ratio} and #{$small-screen},
+		only screen and #{$opera-min-pixel-ratio} and #{$small-screen},
+		only screen and #{$min-pizel-ratio} and #{$small-screen},
+		only screen and #{$min-resolution} and #{$small-screen},
+		only screen and #{$min-resolution-dppx} and #{$small-screen} { @content; }
+	}
+	
+	/*Non- retina based devices with medium screen size */
+	@else if $point == medium-screen {
+		@media only screen and #{$medium-screen} { @content; }
+	}
+	
+	/* Retina devices with medium screen size */
+	@else if $point == medium-screen-retina {
+		@media
+		only screen and #{$webkit-min-pixel-ratio} and #{$medium-screen},
+		only screen and #{$mozilla-min-pixel-ratio} and #{$medium-screen},
+		only screen and #{$opera-min-pixel-ratio} and #{$medium-screen},
+		only screen and #{$min-pizel-ratio} and #{$medium-screen},
+		only screen and #{$min-resolution} and #{$medium-screen},
+		only screen and #{$min-resolution-dppx} and #{$medium-screen} { @content; }
+	}
+	
+	/* Non-retina devices with large screen sizes */
+	@else if $point == large-screen {
+		@media only screen and#{$large-screen}  { @content; }
+	}
+	
+	/* Retina devices with large screen sizes */
+	@else if $point == large-screen-retina {
+		@media
+		only screen and #{$webkit-min-pixel-ratio} and #{$large-screen},
+		only screen and #{$mozilla-min-pixel-ratio} and #{$large-screen},
+		only screen and #{$opera-min-pixel-ratio} and #{$large-screen},
+		only screen and #{$min-pizel-ratio} and #{$large-screen},
+		only screen and #{$min-resolution} and #{$large-screen},
+		only screen and #{$min-resolution-dppx} and #{$large-screen} { @content; }
+	}
+}

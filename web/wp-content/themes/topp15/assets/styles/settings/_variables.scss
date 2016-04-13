@@ -5,12 +5,29 @@ $main-font: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Hel
 $icon-font-path:        "../fonts/";
 
 // Grid settings
-$main-sm-columns:       12;
-$sidebar-sm-columns:    4;
+$main-sm-columns :      12;
+$sidebar-sm-columns :    4;
 
 // Colors
-$primary:          #F7931E;
-$accent:           #F7F7F7;
-$warn:             #F44336;
-$font-color: 	   #0F0F0F;
-$background-color: #FEFEFE;
+$primary :          #F7931E;
+$accent :           #F7F7F7;
+$warn :             #F44336;
+$font-color : 	    #0F0F0F;
+$border : 		    #D4D4D4;
+$background-color : #FEFEFE;
+
+//Media Queries - Breakpoints
+$small-screen : '(min-width: 320px)';
+$medium-screen :'(min-width: 768px)';
+$large-screen :'(min-width: 1200px)';
+
+//Retina enabled devices
+$webkit-min-pixel-ratio : '(-webkit-min-device-pixel-ratio: 2)';
+$mozilla-min-pixel-ratio   : '(min--moz-device-pixel-ratio: 2)';
+$opera-min-pixel-ratio     : '(-o-min-device-pixel-ratio: 2/1)';
+$min-pizel-ratio                : '(min-device-pixel-ratio: 2)';
+$min-resolution                    : '(min-resolution: 192dpi)';
+$min-resolution-dppx                : '(min-resolution: 2dppx)';
+
+//URL of website, change if site is moved
+$siteurl : 'http://localhost/topp15/web';

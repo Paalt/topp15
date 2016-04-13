@@ -1,0 +1,37 @@
+<StackPanel ux:Class="Sidebar" Background="#212831">
+	<WhileInactive Threshold="0.4">
+		<Move Target="browser" X="-180" Duration="0.2" Delay="0.15" Easing="CircularIn" />
+		<Move Target="feed" X="-180" Duration="0.2" Delay="0.1" Easing="CircularIn" />
+		<Move Target="chat" X="-180" Duration="0.2" Delay="0.05" Easing="CircularIn" />
+	</WhileInactive>
+
+	<Text ux:Class="MenuLabel" TextAlignment="Center" FontSize="18" TextColor="#414f5e" Margin="0,0,0,0">
+		<Font File="assets/fonts/Lato-Bold.ttf" />
+	</Text>
+
+	<StatusBarBackground Background="#909498" />
+
+	<Image ux:Class="SidebarIcon" Height="100" Width="100" Margin="0,24,0,9" Color="#7a96b2" />
+
+	<StackPanel>
+		<Panel Height="50" />
+		<StackPanel ux:Name="browser">
+			<SidebarIcon File="assets/mb.jpg" />
+			<MenuLabel>MÅNEDENS BESTSELGERE</MenuLabel>
+		</StackPanel>
+		<StackPanel ux:Name="feed">
+			<SidebarIcon File="assets/icon/Feed.png" />
+			<MenuLabel>NYHETER</MenuLabel>
+		</StackPanel>
+		<StackPanel ux:Name="chat">
+			<SidebarIcon File="assets/icon/Chat.png" />
+			<MenuLabel>BARNEBØKER</MenuLabel>
+			<!-- <Button Text="WOLOLOLOLO">
+				<Clicked>
+					<DebugAction Message="WOLOLO" />
+					<Set navigation.Active="page1" />
+				</Clicked>
+			</Button> -->
+		</StackPanel>
+	</StackPanel>
+</StackPanel>

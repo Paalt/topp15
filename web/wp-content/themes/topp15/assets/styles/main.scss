@@ -34,28 +34,99 @@
 
 @import "settings/variables";
 @import "settings/mixins";
+/*------------------------------------*\
+    #SETTINGS-GENERIC
+\*------------------------------------*/
 @import "settings/generic";
 
 // Automatically injected Bower dependencies via wiredep (never manually edit this block)
 // bower:scss
 // endbower
 
+/*------------------------------------*\
+    #BASE-GLOBAL
+\*------------------------------------*/
 @import "base/global";
+
+/*------------------------------------*\
+    #BASE-HEADINGS
+\*------------------------------------*/
 @import "base/headings";
 
+
+/*------------------------------------*\
+    #COMPONENTS-BUTTONS
+\*------------------------------------*/
 @import "components/buttons";
+
+/*------------------------------------*\
+    #COMPONENTS-FORMS
+\*------------------------------------*/
 @import "components/forms";
+
+/*------------------------------------*\
+    #COMPONENTS-GRID
+\*------------------------------------*/
 @import "components/grid";
+
+/*------------------------------------*\
+    #COMPONENTS-ICONS
+\*------------------------------------*/
 @import "components/icons";
+
+/*------------------------------------*\
+    #COMPONENTS-LISTS
+\*------------------------------------*/
 @import "components/lists";
+
+/*------------------------------------*\
+    #COMPONENTS-MEDIA
+\*------------------------------------*/
 @import "components/media";
 
+/*------------------------------------*\
+    #COMPONENTS-NAV
+\*------------------------------------*/
+@import "components/nav";
+
+
+/*------------------------------------*\
+    #LAYOUTS-HEADER
+\*------------------------------------*/
 @import "layouts/header";
+
+/*------------------------------------*\
+    #LAYOUTS-FOOTER
+\*------------------------------------*/
 @import "layouts/footer";
+
+/*------------------------------------*\
+    #LAYOUTS-PAGES
+\*------------------------------------*/
 @import "layouts/pages";
+
+/*------------------------------------*\
+    #LAYOUTS-POSTS
+\*------------------------------------*/
 @import "layouts/posts";
+
+/*------------------------------------*\
+    #LAYOUTS-TINYMCE
+\*------------------------------------*/
 @import "layouts/tinymce";
 
+
+/*------------------------------------*\
+    #STATES-ALERTS
+\*------------------------------------*/
 @import "states/alerts";
+
+/*------------------------------------*\
+    #STATES-LINKS
+\*------------------------------------*/
 @import "states/links";
+
+/*------------------------------------*\
+    #STATES-TEXT
+\*------------------------------------*/
 @import "states/text";

@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 /app/.uno/
 /app/build/
 /app/.build/
 /app/.cache
+=======
+.uno
+build/
+.build/
+.cache
+>>>>>>> 5e95cd225e8af89c5c958a47f538f0dafea6a2c2
 *.org
 ~*
 *~

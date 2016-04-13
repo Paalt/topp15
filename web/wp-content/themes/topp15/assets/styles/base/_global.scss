@@ -54,3 +54,33 @@ a {
 	}
 }
 
+
+
+
+
+/*------------------------------------*\
+	#FORMS
+\*------------------------------------*/
+
+label {}
+
+input[type="text"] {
+	width: 300px;
+	height: 35px;
+	background-color: $accent;
+	border: 1px solid $border;
+	border-radius: 20px;
+	padding: 2px 0px 2px 15px;
+}
+
+
+
+
+
+/*------------------------------------*\
+	#BUTTONS
+\*------------------------------------*/
+
+button[type="submit"] {
+	
+}

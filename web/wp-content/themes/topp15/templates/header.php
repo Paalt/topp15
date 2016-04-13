@@ -1,10 +1,10 @@
-<header class="banner">
-	<div class="container">
+<header class="top-bar">
+	<div class="container" layout="row" layout-align="start center">
     	<!-- Logo  -->
-        <div class="site-branding">
+        <div class="site-branding" flex="25">
             <!-- If a logo is uploaded we show the logo-->
             <?php if ( get_theme_mod( 'topp15_logo' ) ) : ?>
-                <div class='site-logo'>
+                <div class="header__site-logo">
                     <a class="brand" href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'><img id="logo" src='<?php echo esc_url( get_theme_mod( 'topp15_logo' ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'></a>
                 </div>
             <!-- Else we show the title -->
@@ -16,16 +16,6 @@
             <?php endif; ?>
         </div>
 		<!-- Primary Navigation-->
-        <nav class="nav-primary">
-			<?php
-            if (has_nav_menu('primary_navigation')) :
-            wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav',]);
-            endif;
-            ?>
-        </nav>
-        <md-button class="md-raised md-primary">Click me</md-button>
-        <md-button class="md-raised md-accent">or maybe me</md-button>
-        <md-button class="md-raised md-warn">Careful</md-button>
-        
+        <nav-primary flex="75"></nav-primary>
 	</div>
 </header>

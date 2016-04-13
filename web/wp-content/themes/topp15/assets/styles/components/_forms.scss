@@ -1,15 +1,25 @@
-// Search form
-.search-form {
-  @extend .form-inline;
+/*------------------------------------*\
+	#FORMS-NEWSLETTER
+\*------------------------------------*/
+
+.newsletter__label {
+	position: relative;
+	display: block;
 }
-.search-form label {
-  font-weight: normal;
-  @extend .form-group;
+
+.newsletter__button {
+	vertical-align: sub;
+    right: 45px;
+	position: relative;
+    margin: auto;
+	width: 30px;
+	height: 30px;
+	background-color: $primary;
+	border-radius: 50%;
+	border: 0;
+	i {
+		line-height: 1.5;
+	}
 }
-.search-form .search-field {
-  @extend .form-control;
-}
-.search-form .search-submit {
-  @extend .btn;
-  @extend .btn-default;
-}
+
+

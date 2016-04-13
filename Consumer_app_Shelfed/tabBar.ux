@@ -1,0 +1,41 @@
+<StackPanel Dock="Top" Background="#bdc3c7" ux:Class="PageBar">
+  <MultiLayoutPanel Height="50" ux:Name="tabBar">
+    <GridLayout ColumnCount="3" Rows="1*" />
+    <Panel ux:Name="page1Tab">
+      <Placeholder>
+        <Rectangle ux:Name="indicator" Alignment="Bottom" Height="4" Fill="#6c7a89">
+          <LayoutAnimation>
+            <Move RelativeTo="LayoutChange" X="1" Duration="0.4" Easing="BackIn" />
+          </LayoutAnimation>
+        </Rectangle>
+      </Placeholder>s
+      <Button Text="Topp 15">
+        <Clicked>
+          <Set navigation.navigation.Active="page1" />
+        </Clicked>
+      </Button>
+    </Panel>
+    <Panel ux:Name="page2Tab">
+      <Placeholder  Target="indicator"/>
+      <Button Text="Barnebøker">
+        <Clicked>
+          <Set navigation.Active="page2" />
+        </Clicked>
+      </Button>
+    </Panel>
+    <!-- Real Nyheter -->
+    <!-- <Panel ux:Name="page3Tab">
+         <Placeholder Target="indicator"/>
+         <Button Text="Nyheter">
+         <Clicked>
+         <Set navigation.Active="page3" />
+         </Clicked>
+         </Button>
+         </Panel> -->
+    <!-- Remove this when real Nyheter is implemented -->
+    <Panel>
+      <Placeholder Target="indicator" />
+      <Button Text="Nyheter" />
+    </Panel>
+  </MultiLayoutPanel>
+</StackPanel>
