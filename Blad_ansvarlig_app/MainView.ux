@@ -13,7 +13,7 @@
 		<UserEvent Name="ToggleLoggedIn" />
 		
 		<Panel>
-			<Feedback />
+			
 			<JavaScript File="MainView.js" />
 			
 			<!-- Code for showing RSS -->
