@@ -1,0 +1,19 @@
+<Panel ux:Class="ProgressBar">
+    <JavaScript>
+        var Observable = require("FuseJS/Observable");
+
+        var done = 25;
+        var goal = 150;
+        var progress = (parseInt((done / goal) * 100));
+
+        var data = Observable(progress + "%");
+
+        module.exports = {
+            data: data
+        };
+    </JavaScript>
+    <Rectangle Width="90%" Height="30" Fill="Gray" Alignment="Center">
+        <Text Value="{data}" Alignment="CenterRight" />
+        <Rectangle Width="{data}" Height="100%" Fill="Blue" Alignment="Left" />
+    </Rectangle>
+</Panel>
