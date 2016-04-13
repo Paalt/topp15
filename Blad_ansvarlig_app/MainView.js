@@ -64,6 +64,7 @@ module.exports = {
 };
 
 module.exports = {
+  id : id,
 	grupper: grupper,
   getId : getId,
   data : data

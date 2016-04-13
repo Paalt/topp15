@@ -124,10 +124,23 @@
 							<Each Items="{data.responseData}">
 								<Rectangle Height="50" Width="100%" Margin="0,0,0,10" Fill="#f00" CornerRadius="10" Clicked="{getId}">
 									<Text Value="{headline}" Padding="10,0,0,0"/>
+									<Clicked>
+										<Set DetailedView.IsEnabled="true" />
+										<Set DetailedView.Opacity="1" />
+										<Set GroupScreen.IsEnabled="false" />
+										<Set GroupScreen.Opacity="0" />
+										<DebugAction Message="Stuff, i dunno" />
+									</Clicked>
 								</Rectangle>
 							</Each>
 						</StackPanel>
 					</ScrollView>
+				</Panel>
+				<Panel ux:Name="DetailedView" IsEnabled="false" Opacity="0">
+					<StackPanel Dock="Top">
+						<Text FontSize="22" Alignment="VerticalCenter" TextAlignment="Center" Value="{id.value.body}" Padding="2" TextColor="#FFF" />
+						<Rectangle Height="1" Margin="0,0,0,0" Fill="#333c48" />
+					</StackPanel>
 				</Panel>
 			</Panel>
 
