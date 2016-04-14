@@ -5,3 +5,11 @@ build/
 *.org
 ~*
 *~
+*.iml
+.gradle
+/BladAsnsvarligAppAndroid/local.properties
+/BladAsnsvarligAppAndroid/.idea/workspace.xml
+/BladAsnsvarligAppAndroid/.idea/libraries
+.DS_Store
+/BladAsnsvarligAppAndroid/build
+/BladAsnsvarligAppAndroid/captures
