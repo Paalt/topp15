@@ -25,15 +25,20 @@ public class WelcomeMenu extends Activity {
 
         Calendar today = Calendar.getInstance();
 
+        String navn = "COOP Mega Skøyen";
+        String aar = getMonth(today.get(Calendar.MONTH)) + " " + String.valueOf(today.get(Calendar.YEAR));
+        String tasks = "8";
+
         mButikkNavn = (TextView) findViewById(R.id.ButikkNavn);
         mDate = (TextView) findViewById(R.id.Date);
         mDay = (TextView) findViewById(R.id.Day);
         mTaskDue = (TextView) findViewById(R.id.TaskDue);
         mMonthYear = (TextView) findViewById(R.id.MonthYear);
-        mButikkNavn.setText("COOP Mega Skøyen");
+        mButikkNavn.setText(navn);
+        mTaskDue.setText(tasks);
         mDate.setText(String.valueOf(today.get(Calendar.DAY_OF_MONTH)));
         mDay.setText(getDay(today.get(Calendar.DAY_OF_WEEK)));
-        mMonthYear.setText(getMonth(today.get(Calendar.MONTH)) + " " + String.valueOf(today.get(Calendar.YEAR)));
+        mMonthYear.setText(aar);
     }
 
     private String getDay (int day_of_the_week){
