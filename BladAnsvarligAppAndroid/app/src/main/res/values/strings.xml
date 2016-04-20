@@ -14,4 +14,5 @@
         completions."
     </string>
     <string name="motivasjon">Dere holder på å nå målet!</string>
+    <string name="ikke_ferdig">Har du tenkt deg videre?\n\nDu har ikke fullført listen\n\nVennligst gå tilbake</string>
 </resources>
