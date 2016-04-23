@@ -39,6 +39,7 @@ import static android.Manifest.permission.READ_CONTACTS;
  */
 public class LoginActivity extends AppCompatActivity {
 
+    // .DATA
     /**
      * A dummy authentication store containing known user names and passwords.
      * TODO: remove after connecting to a real authentication system.
@@ -49,6 +50,7 @@ public class LoginActivity extends AppCompatActivity {
     /**
      * Følger med på login tasks og gjør at vi kan kanselere om det trengs
      */
+    // .DATA?
     private UserLoginTask mAuthTask = null;
 
     // UI references.
@@ -57,6 +59,7 @@ public class LoginActivity extends AppCompatActivity {
     private View mProgressView;
     private View mLoginFormView;
 
+    // .CODE
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

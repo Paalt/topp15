@@ -12,12 +12,14 @@ import java.util.Calendar;
  */
 public class WelcomeMenu extends Activity {
 
+    // .DATA?
     private TextView mButikkNavn;
     private TextView mDate;
     private TextView mDay;
     private TextView mTaskDue;
     private TextView mMonthYear;
 
+    // .CODE
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

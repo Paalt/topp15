@@ -9,10 +9,12 @@ import android.widget.TextView;
  */
 public class MainMenu extends Activity {
 
+    // .DATA?
     private TextView mWelcome;
     private TextView mBokerSolgt;
     private TextView mPoeng;
 
+    // .CODE
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
