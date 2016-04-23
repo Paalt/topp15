@@ -112,10 +112,18 @@ public class Checklist extends Activity{
                     public void onClick(View v) {
                         CheckBox cb = (CheckBox) v ;
                         MakeItShine makeItShine = (MakeItShine) cb.getTag();
+                        if (cb.isChecked()) {
                         Toast.makeText(getApplicationContext(),
-                        "Clicked on Checkbox: " + cb.getText() +
-                        " is " + cb.isChecked(),
+                        cb.getText() +
+                        " er ferdig",
                         Toast.LENGTH_LONG).show();
+                        }
+                        else {
+                        Toast.makeText(getApplicationContext(),
+                        cb.getText() +
+                        " er ikke ferdig",
+                        Toast.LENGTH_LONG).show();
+                        }
                         makeItShine.setSelected(cb.isChecked());
                     }
                 });
