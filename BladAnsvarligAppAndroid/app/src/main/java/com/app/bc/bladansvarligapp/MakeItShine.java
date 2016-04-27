@@ -5,9 +5,11 @@ package com.app.bc.bladansvarligapp;
  */
 public class MakeItShine {
 
+    // .DATA
     String name = null;
     boolean selected = false;
 
+    // .CODE
     public MakeItShine(String name, boolean selected) {
         super();
         this.name = name;

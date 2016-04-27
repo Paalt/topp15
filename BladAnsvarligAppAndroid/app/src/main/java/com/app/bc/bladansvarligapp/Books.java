@@ -5,9 +5,11 @@ package com.app.bc.bladansvarligapp;
  */
 public class Books {
 
+    // .DATA
     String name = null;
     int amount = 0;
 
+    // .CODE
     public Books(String name) {
         super();
         this.name = name;

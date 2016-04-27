@@ -1,22 +1,27 @@
 package com.app.bc.bladansvarligapp;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.CheckBox;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.PopupMenu;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by alkan on 26.04.2016.
@@ -26,17 +31,56 @@ public class Supplering extends Activity{
     // .DATA
     MyCustomAdapter dataAdapter = null;
 
+    // .DATA?
+    ArrayList<Books> books;
+    Button mBestill;
+    AlertDialog.Builder builder;
+
     // .CODE
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_supplering);
 
+        mBestill = (Button) findViewById(R.id.bestill);
+
+        createAlert();
         DisplayListView();
+
+        mBestill.setOnClickListener(
+            new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+                }
+            }
+        );
+    }
+
+    private void createAlert(){
+        builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle("Bestill");
+        builder.setMessage("Er du sikker på at du vil bestille de valgte bøkene?");
+        builder.setPositiveButton("Confirm",
+            new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                }
+            }
+        );
+        builder.setNegativeButton(android.R.string.cancel,
+            new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                }
+            }
+        );
     }
 
     private void DisplayListView(){
-        ArrayList<Books> books = new ArrayList<>();
+        books = new ArrayList<>();
         Books book = new Books("dummy");
         books.add(book);
         book = new Books("Another dummy");
@@ -90,6 +134,7 @@ public class Supplering extends Activity{
                 holder.name.setOnClickListener( new View.OnClickListener() {
                     public void onClick(View v) {
                         //TODO: Write ths
+                        Toast.makeText(getApplicationContext(), "Clicked on text", Toast.LENGTH_LONG).show();
                     }
                 });
             }

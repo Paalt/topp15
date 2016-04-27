@@ -1,7 +1,6 @@
 package com.app.bc.bladansvarligapp;
 
 import android.app.Activity;
-import android.media.Image;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;

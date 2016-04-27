@@ -2,7 +2,6 @@ package com.app.bc.bladansvarligapp;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.widget.CalendarView;
 import android.widget.TextView;
 
 import java.util.Calendar;

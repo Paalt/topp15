@@ -18,13 +18,13 @@
         android:id="@+id/SuppleringListe"
         android:layout_below="@+id/textView7"
         android:layout_centerHorizontal="true"
-        android:layout_above="@+id/button2" />
+        android:layout_above="@+id/bestill" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Bestill"
-        android:id="@+id/button2"
+        android:id="@+id/bestill"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>
