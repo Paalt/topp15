@@ -1,6 +1,7 @@
 package com.app.bc.bladansvarligapp;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -20,10 +21,16 @@ public class MainMenu extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
+        Intent intent = getIntent();
+        final String godJobb ="God jobb, ";
+        String butikk = intent.getStringExtra("butikk");
+        String welcome = godJobb + butikk;
+
+
         mWelcome = (TextView) findViewById(R.id.welcome);
         mBokerSolgt = (TextView) findViewById(R.id.bokerSolgt);
         mPoeng = (TextView) findViewById(R.id.poeng);
-        mWelcome.setText("God jobb, Meny Coloseum!");
+        mWelcome.setText(welcome);
         mBokerSolgt.setText("16");
         mPoeng.setText("1");
 

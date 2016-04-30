@@ -3,6 +3,7 @@ package com.app.bc.bladansvarligapp;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 
 import android.os.AsyncTask;
@@ -64,6 +65,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         Button mButikkSignInButton = (Button) findViewById(R.id.butikk_sign_in_button);
+        assert mButikkSignInButton != null;
         mButikkSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -90,7 +92,7 @@ public class LoginActivity extends AppCompatActivity {
         mPasswordView.setError(null);
 
         // Lagrer verdier før den prøver å logge inn
-        String butikk = mButikkView.getText().toString();
+        final String butikk = mButikkView.getText().toString();
         String password = mPasswordView.getText().toString();
 
         boolean cancel = false;
@@ -117,7 +119,16 @@ public class LoginActivity extends AppCompatActivity {
             // prøver å logge inn
             showProgress(true);
             mAuthTask = new UserLoginTask(butikk, password);
-            mAuthTask.execute((Void) null);
+            mAuthTask.execute(new Runnable()
+            {
+                @Override
+                public void run()
+                {
+                    Intent intent = new Intent(LoginActivity.this, MainMenu.class);
+                    intent.putExtra("butikk", butikk);
+                    startActivity(intent);
+                }
+            });
         }
     }
 
