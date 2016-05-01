@@ -125,7 +125,7 @@ public class LoginActivity extends AppCompatActivity {
                 public void run()
                 {
                     Intent intent = new Intent(LoginActivity.this, MainMenu.class);
-                    intent.putExtra("butikk", butikk);
+                    intent.putExtra("butikk", mAuthTask.mEmail);
                     startActivity(intent);
                 }
             });

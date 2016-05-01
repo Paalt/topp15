@@ -1,9 +1,13 @@
 package com.app.bc.bladansvarligapp;
 
+import android.app.Activity;
+import android.content.Intent;
+
 /**
  * Created by alkan on 23.04.2016.
  */
-public class MakeItShine {
+public class MakeItShine extends Activity
+{
 
     // .DATA
     String name = null;
@@ -14,6 +18,12 @@ public class MakeItShine {
         super();
         this.name = name;
         this.selected = selected;
+    }
+
+    private void sendToChecklist()
+    {
+        Intent intent = new Intent(this, Checklist.class);
+        startActivity(intent);
     }
 
     public String getName() {

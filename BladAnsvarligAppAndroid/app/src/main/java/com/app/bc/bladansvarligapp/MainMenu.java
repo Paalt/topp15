@@ -35,4 +35,16 @@ public class MainMenu extends Activity {
         mPoeng.setText("1");
 
     }
+
+    private void sendToMakeItShine()
+    {
+        Intent intent = new Intent(this, MakeItShine.class);
+        startActivity(intent);
+    }
+
+//    private void sendToTheGame()
+//    {
+//        Intent intent = new Intent(this, TheGame.class);
+//        startActivity(intent);
+//    }
 }

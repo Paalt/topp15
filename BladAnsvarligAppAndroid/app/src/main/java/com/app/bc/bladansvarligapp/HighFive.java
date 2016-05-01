@@ -1,6 +1,7 @@
 package com.app.bc.bladansvarligapp;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -40,4 +41,11 @@ public class HighFive extends Activity {
             // TODO: mHighFiveImage.setImageResource(R.drawable.
         }
     }
+
+    private void sendToSupplering()
+    {
+        Intent intent = new Intent(this, Supplering.class);
+        startActivity(intent);
+    }
+
 }

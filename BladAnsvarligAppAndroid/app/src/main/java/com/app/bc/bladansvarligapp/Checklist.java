@@ -2,6 +2,7 @@ package com.app.bc.bladansvarligapp;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -138,6 +139,12 @@ public class Checklist extends Activity{
 
             return convertView;
         }
+    }
+
+    private void sendToHighFive()
+    {
+        Intent intent = new Intent(this, HighFive.class);
+        startActivity(intent);
     }
 
 // private void checkButtonClick() {
