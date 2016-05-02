@@ -11,9 +11,7 @@ public class Books {
 
     // .CODE
     public Books(String name) {
-        super();
         this.name = name;
-        this.amount = amount;
     }
 
     public String getName() {
