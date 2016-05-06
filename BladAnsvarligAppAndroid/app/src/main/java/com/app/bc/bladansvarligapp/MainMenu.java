@@ -3,6 +3,7 @@ package com.app.bc.bladansvarligapp;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 /**
@@ -14,6 +15,8 @@ public class MainMenu extends Activity {
     private TextView mWelcome;
     private TextView mBokerSolgt;
     private TextView mPoeng;
+    private TextView mMakeItShine;
+    private TextView mTheGame;
 
     // .CODE
     @Override
@@ -30,17 +33,27 @@ public class MainMenu extends Activity {
         mWelcome = (TextView) findViewById(R.id.welcome);
         mBokerSolgt = (TextView) findViewById(R.id.bokerSolgt);
         mPoeng = (TextView) findViewById(R.id.poeng);
+        mMakeItShine = (TextView) findViewById(R.id.makeItShine);
+        mTheGame = (TextView) findViewById(R.id.theGame);
+
         mWelcome.setText(welcome);
         mBokerSolgt.setText("16");
         mPoeng.setText("1");
-
+//        mMakeItShine.setOnClickListener(new View.OnClickListener()
+//        {
+//            @Override
+//            public void onClick(View v)
+//            {
+//                sendToMakeItShine();
+//            }
+//        });
     }
 
-    private void sendToMakeItShine()
-    {
-        Intent intent = new Intent(this, MakeItShine.class);
-        startActivity(intent);
-    }
+//    private void sendToMakeItShine()
+//    {
+//        Intent intent = new Intent(this, MakeItShine.class);
+//        startActivity(intent);
+//    }
 
 //    private void sendToTheGame()
 //    {
