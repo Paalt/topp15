@@ -8,10 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -45,16 +42,16 @@ public class Gruppeliste extends Activity {
     private void displayListView() {
 
         //Array list of countries
-        ArrayList<Gruppelister> gruppeliste = new ArrayList<Gruppelister>();
-        Gruppelister gruppe = new Gruppelister("Rydde hyllen",15);
+        ArrayList<Gruppe> gruppeliste = new ArrayList<Gruppe>();
+        Gruppe gruppe = new Gruppe("Rydde hyllen", 15);
         gruppeliste.add(gruppe);
-        gruppe = new Gruppelister("Legge opp nye bøker",24);
+        gruppe = new Gruppe("Legge opp nye bøker", 24);
         gruppeliste.add(gruppe);
-        gruppe = new Gruppelister("Organiser bøkene i topp 15",50);
+        gruppe = new Gruppe("Organiser bøkene i topp 15", 50);
         gruppeliste.add(gruppe);
-        gruppe = new Gruppelister("Sende tilbake utgåtte bøker",0);
+        gruppe = new Gruppe("Sende tilbake utgåtte bøker", 0);
         gruppeliste.add(gruppe);
-        gruppe = new Gruppelister("Rydde i bladene",6);
+        gruppe = new Gruppe("Rydde i bladene", 6);
         gruppeliste.add(gruppe);
 
         //create an ArrayAdaptar from the String Array
@@ -77,12 +74,12 @@ public class Gruppeliste extends Activity {
 //        });
     }
 
-    private class MyCustomAdapter extends ArrayAdapter<Gruppelister> {
+    private class MyCustomAdapter extends ArrayAdapter<Gruppe> {
 
-        private ArrayList<Gruppelister> gruppeArrayList;
+        private ArrayList<Gruppe> gruppeArrayList;
 
         public MyCustomAdapter(Context context, int textViewResourceId,
-                               ArrayList<Gruppelister> Gruppelister) {
+                               ArrayList<Gruppe> Gruppelister) {
             super(context, textViewResourceId, Gruppelister);
             this.gruppeArrayList = new ArrayList<>();
             this.gruppeArrayList.addAll(Gruppelister);
@@ -120,7 +117,7 @@ public class Gruppeliste extends Activity {
                 holder = (ViewHolder) convertView.getTag();
             }
 
-            Gruppelister grupper = gruppeArrayList.get(position);
+            Gruppe grupper = gruppeArrayList.get(position);
             String memberCount = grupper.getMembers() + "/50 medlemmer";
             holder.name.setText(grupper.getName());
             holder.number.setText(memberCount);

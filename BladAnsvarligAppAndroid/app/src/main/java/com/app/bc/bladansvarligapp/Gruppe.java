@@ -3,14 +3,15 @@ package com.app.bc.bladansvarligapp;
 /**
  * Created by alkan on 02.05.2016.
  */
-public class Gruppelister {
+public class Gruppe
+{
 
     // .DATA
     String name = null;
     int members = 0;
 
     // .CODE
-    public Gruppelister(String name, int members) {
+    public Gruppe(String name, int members) {
         this.name = name;
         this.members = members;
     }
