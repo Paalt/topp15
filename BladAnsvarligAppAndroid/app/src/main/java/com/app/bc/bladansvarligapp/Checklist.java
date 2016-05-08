@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -28,6 +29,7 @@ public class Checklist extends Activity{
 
     // .DATA?
     private ListView mChecklist;
+    private Button mFerdigButton;
 
     // .CODE
     @Override
@@ -39,6 +41,16 @@ public class Checklist extends Activity{
         displayListView();
 
         //checkButtonClick();
+        mFerdigButton = (Button) findViewById(R.id.ferdig);
+        mFerdigButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                // TODO check if tasks are done and handle if not
+                sendToHighFive();
+            }
+        });
 
     }
 
@@ -58,8 +70,7 @@ public class Checklist extends Activity{
         shineList.add(makeItShine);
 
         //create an ArrayAdaptar from the String Array
-        dataAdapter = new MyCustomAdapter(this,
-            R.layout.activity_checklist, shineList);
+        dataAdapter = new MyCustomAdapter(this, R.layout.activity_checklist, shineList);
         ListView listView = (ListView) findViewById(R.id.checklist);
         // Assign adapter to ListView
         listView.setAdapter(dataAdapter);
@@ -67,12 +78,12 @@ public class Checklist extends Activity{
 
         listView.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view,
-                int position, long id) {
+                                    int position, long id) {
                 // When clicked, show a toast with the TextView text
                 MakeItShine makeItShine = (MakeItShine) parent.getItemAtPosition(position);
                 Toast.makeText(getApplicationContext(),
-                    "Clicked on Row: " + makeItShine.getName(),
-                    Toast.LENGTH_LONG).show();
+                               "Clicked on Row: " + makeItShine.getName(),
+                               Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -82,7 +93,7 @@ public class Checklist extends Activity{
         private ArrayList<MakeItShine> shineArrayList;
 
         public MyCustomAdapter(Context context, int textViewResourceId,
-        ArrayList<MakeItShine> shineList) {
+                               ArrayList<MakeItShine> shineList) {
             super(context, textViewResourceId, shineList);
             this.shineArrayList = new ArrayList<MakeItShine>();
             this.shineArrayList.addAll(shineList);
@@ -101,7 +112,7 @@ public class Checklist extends Activity{
 
             if (convertView == null) {
                 LayoutInflater vi = (LayoutInflater)getSystemService(
-                Context.LAYOUT_INFLATER_SERVICE);
+                        Context.LAYOUT_INFLATER_SERVICE);
                 convertView = vi.inflate(R.layout.checklist_layout, null);
 
                 holder = new ViewHolder();
@@ -113,16 +124,16 @@ public class Checklist extends Activity{
                         CheckBox cb = (CheckBox) v ;
                         MakeItShine makeItShine = (MakeItShine) cb.getTag();
                         if (cb.isChecked()) {
-                        Toast.makeText(getApplicationContext(),
-                        cb.getText() +
-                        " er ferdig",
-                        Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(),
+                                           cb.getText() +
+                                                   " er ferdig",
+                                           Toast.LENGTH_LONG).show();
                         }
                         else {
-                        Toast.makeText(getApplicationContext(),
-                        cb.getText() +
-                        " er ikke ferdig",
-                        Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(),
+                                           cb.getText() +
+                                                   " er ikke ferdig",
+                                           Toast.LENGTH_LONG).show();
                         }
                         makeItShine.setSelected(cb.isChecked());
                     }
