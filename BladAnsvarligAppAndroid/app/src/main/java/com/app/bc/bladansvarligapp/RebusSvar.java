@@ -73,6 +73,6 @@ public class RebusSvar extends Activity {
         private Integer[] mThumbIds = {
             R.drawable.blue_cirlce, R.drawable.red_circle,
             R.drawable.high_five, R.drawable.no_five
-    };
-}
+        };
+    }
 }
