@@ -24,11 +24,7 @@
 
         </activity>
         <activity android:name=".Checklist">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
         <activity android:name=".HighFive">
@@ -40,8 +36,12 @@
         <activity android:name=".RebusSvar">
 
         </activity>
-        <activity android:name=".Gruppeliste">
+        <activity android:name=".Rebus">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
