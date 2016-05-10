@@ -98,7 +98,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="● Make it shine"
-                android:id="@+id/textView3"
+                android:id="@+id/makeItShine"
                 android:layout_gravity="left|center_vertical"
                 android:layout_marginLeft="25dp" />
         </FrameLayout>
@@ -113,7 +113,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="● The game"
-                android:id="@+id/textView4"
+                android:id="@+id/theGame"
                 android:layout_gravity="left|center_vertical"
                 android:layout_marginLeft="25dp" />
         </FrameLayout>

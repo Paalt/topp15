@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Ferdig"
-        android:id="@+id/button"
+        android:id="@+id/ferdig"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true" />
@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/checklist"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/button"
+        android:layout_above="@+id/ferdig"
         android:layout_below="@+id/textView6"
         android:layout_marginTop="15dp"
         android:choiceMode="singleChoice" />

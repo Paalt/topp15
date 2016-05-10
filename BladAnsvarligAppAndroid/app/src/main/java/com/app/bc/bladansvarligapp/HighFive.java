@@ -3,6 +3,7 @@ package com.app.bc.bladansvarligapp;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -13,7 +14,7 @@ import android.widget.TextView;
 public class HighFive extends Activity {
 
     // .DATA
-    boolean dummy = false;
+    boolean mFinished;
 
     // .DATA?
     TextView mHighFiveText;
@@ -30,14 +31,33 @@ public class HighFive extends Activity {
         mHighFiveButton = (Button) findViewById(R.id.high_five_button);
         mHighFiveImage = (ImageView) findViewById(R.id.high_five_image);
 
-        if (dummy) {
+        Intent intent = getIntent();
+        mFinished = intent.getBooleanExtra("finished", true);
+
+        if (mFinished) {
             mHighFiveText.setText("High five dere har fått\n\n+ 15 poeng\n\nFortsett med den gode jobben");
             mHighFiveButton.setText("Videre");
+            mHighFiveButton.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    sendToSupplering();
+                }
+            });
             // TODO: mHighFiveImage.setImageResource(R.drawable.
         }
         else {
             mHighFiveText.setText("Har du tenkt å gå videre?\n\nDu har ikke fullført listen\n\nVennligst gå tilbake");
             mHighFiveButton.setText("Tilbake");
+            mHighFiveButton.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    sendToChecklist();
+                }
+            });
             // TODO: mHighFiveImage.setImageResource(R.drawable.
         }
     }
@@ -48,4 +68,9 @@ public class HighFive extends Activity {
         startActivity(intent);
     }
 
+    private void sendToChecklist()
+    {
+        Intent intent = new Intent(this, Checklist.class);
+        startActivity(intent);
+    }
 }
