@@ -32,10 +32,6 @@
         <activity android:name=".Supplering">
         </activity>
 
-        <activity android:name=".Gruppeliste">
-
-
-        </activity>
         <activity android:name=".RebusSvar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
