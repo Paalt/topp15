@@ -39,25 +39,19 @@ public class MainMenu extends Activity {
         mWelcome.setText(welcome);
         mBokerSolgt.setText("16");
         mPoeng.setText("1");
-//        mMakeItShine.setOnClickListener(new View.OnClickListener()
-//        {
-//            @Override
-//            public void onClick(View v)
-//            {
-//                sendToMakeItShine();
-//            }
-//        });
+        mMakeItShine.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                sendToChecklist();
+            }
+        });
     }
 
-//    private void sendToMakeItShine()
-//    {
-//        Intent intent = new Intent(this, MakeItShine.class);
-//        startActivity(intent);
-//    }
-
-//    private void sendToTheGame()
-//    {
-//        Intent intent = new Intent(this, TheGame.class);
-//        startActivity(intent);
-//    }
+    private void sendToChecklist()
+    {
+        Intent intent = new Intent(this, Checklist.class);
+        startActivity(intent);
+    }
 }
