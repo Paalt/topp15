@@ -50,26 +50,9 @@ public class Rebus extends Activity {
 
         gridview.setAdapter(new ImageAdapter(this));
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-        public void onItemClick(AdapterView<?> parent, View v,
-                                int position, long id) {
-            //Toast.makeText(HelloGridView.this, "" + position,
-                    //Toast.LENGTH_SHORT).show();
+        public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
         }
         });
-
-        // Start lengthy operation in a background thread
-//         new Thread(new Runnable() {
-//             public void run() {
-//
-//                     // Update the progress bar
-//                     mHandler.post(new Runnable() {
-//                         public void run() {
-//                             mProgress.setProgress(mProgressStatus);
-//                         }
-//                     });
-//
-//             }
-//         }).start();
     }
 
     public class ImageAdapter extends BaseAdapter {

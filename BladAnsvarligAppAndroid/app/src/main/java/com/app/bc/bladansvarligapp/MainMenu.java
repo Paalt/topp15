@@ -47,11 +47,25 @@ public class MainMenu extends Activity {
                 sendToChecklist();
             }
         });
+        mTheGame.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                sendToRebus();
+            }
+        });
     }
 
     private void sendToChecklist()
     {
         Intent intent = new Intent(this, Checklist.class);
+        startActivity(intent);
+    }
+
+    private void sendToRebus()
+    {
+        Intent intent = new Intent(this, Rebus.class);
         startActivity(intent);
     }
 }
