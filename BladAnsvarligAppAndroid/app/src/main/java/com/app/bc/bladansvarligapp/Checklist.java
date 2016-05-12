@@ -17,6 +17,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -30,6 +31,7 @@ public class Checklist extends Activity{
     // .DATA?
     private ListView mChecklist;
     private Button mFerdigButton;
+    public ArrayList<MakeItShine> shineList = new ArrayList<>();
 
     // .CODE
     @Override
@@ -58,7 +60,6 @@ public class Checklist extends Activity{
     private void displayListView() {
 
         //Array list of countries
-        ArrayList<MakeItShine> shineList = new ArrayList<MakeItShine>();
         MakeItShine makeItShine = new MakeItShine("Rydde hyllen",false);
         shineList.add(makeItShine);
         makeItShine = new MakeItShine("Legge opp nye bøker",false);
@@ -96,7 +97,7 @@ public class Checklist extends Activity{
         public MyCustomAdapter(Context context, int textViewResourceId,
                                ArrayList<MakeItShine> shineList) {
             super(context, textViewResourceId, shineList);
-            this.shineArrayList = new ArrayList<MakeItShine>();
+            this.shineArrayList = new ArrayList<>();
             this.shineArrayList.addAll(shineList);
         }
 
@@ -106,7 +107,7 @@ public class Checklist extends Activity{
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(final int position, View convertView, ViewGroup parent) {
 
             ViewHolder holder = null;
             Log.v("ConvertView", String.valueOf(position));
@@ -125,12 +126,14 @@ public class Checklist extends Activity{
                         CheckBox cb = (CheckBox) v ;
                         MakeItShine makeItShine = (MakeItShine) cb.getTag();
                         if (cb.isChecked()) {
+                            shineList.get(position).setSelected(true);
                             Toast.makeText(getApplicationContext(),
                                            cb.getText() +
                                                    " er ferdig",
                                            Toast.LENGTH_LONG).show();
                         }
                         else {
+                            shineList.get(position).setSelected(false);
                             Toast.makeText(getApplicationContext(),
                                            cb.getText() +
                                                    " er ikke ferdig",

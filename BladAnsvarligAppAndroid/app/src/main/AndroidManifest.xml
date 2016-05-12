@@ -15,11 +15,6 @@
         <activity
             android:name=".LoginActivity"
             android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
         <activity android:name=".WelcomeMenu">
         </activity>
@@ -36,7 +31,6 @@
 
         </activity>
         <activity android:name=".Rebus">
-<<<<<<< HEAD
 
         </activity>
         <activity android:name=".Ranking">
@@ -45,12 +39,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-=======
-        </activity>
-        <activity android:name=".Gruppeliste">
-        </activity>
-        <activity android:name=".Ferdig">
->>>>>>> 3ce3e0e0ffd6f065d85c12f04e3251d7479994ab
+
         </activity>
 
     </application>
