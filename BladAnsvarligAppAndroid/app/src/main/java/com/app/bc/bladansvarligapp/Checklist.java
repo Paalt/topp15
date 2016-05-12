@@ -48,7 +48,8 @@ public class Checklist extends Activity{
             public void onClick(View v)
             {
                 // TODO check if tasks are done and handle if not
-                sendToFerdig();
+                // if tasks done, high five, else no five;
+                sendToHighFive(HighFive.HIGH_FIVE_CHECKLIST);
             }
         });
 
@@ -152,9 +153,10 @@ public class Checklist extends Activity{
         }
     }
 
-    private void sendToFerdig()
+    private void sendToHighFive(int points)
     {
-        Intent intent = new Intent(this, Ferdig.class);
+        Intent intent = new Intent(this, HighFive.class);
+        intent.putExtra(HighFive.POINTS, points);
         startActivity(intent);
     }
 

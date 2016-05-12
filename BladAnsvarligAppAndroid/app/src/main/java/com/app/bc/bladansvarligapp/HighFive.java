@@ -48,7 +48,7 @@ public class HighFive extends Activity {
                     @Override
                     public void onClick(View v)
                     {
-                        sendToSupplering();
+                        sendToFerdig();
                     }
                 });
             }
@@ -86,9 +86,9 @@ public class HighFive extends Activity {
         startActivity(intent);
     }
 
-    private void sendToSupplering()
+    private void sendToFerdig()
     {
-        Intent intent = new Intent(this, Supplering.class);
+        Intent intent = new Intent(this, Ferdig.class);
         startActivity(intent);
     }
 
