@@ -14,7 +14,12 @@ import android.widget.TextView;
 public class HighFive extends Activity {
 
     // .DATA
-    boolean mFinished;
+    public final static int NO_FIVE = 0;
+    public final static int HIGH_FIVE_CHECKLIST = 2;
+    public final static int HIGH_FIVE_SUPPLERING = 3;
+    public final static int HIGH_FIVE_REBUS = 5;
+    public final static String POINTS = "points";
+    private int mFinished;
 
     // .DATA?
     TextView mHighFiveText;
@@ -32,19 +37,32 @@ public class HighFive extends Activity {
         mHighFiveImage = (ImageView) findViewById(R.id.high_five_image);
 
         Intent intent = getIntent();
-        mFinished = intent.getBooleanExtra("finished", true);
+        mFinished = intent.getIntExtra(POINTS, NO_FIVE);
 
-        if (mFinished) {
-            mHighFiveText.setText("High five dere har fått\n\n+ 15 poeng\n\nFortsett med den gode jobben");
-            mHighFiveButton.setText("Videre");
-            mHighFiveButton.setOnClickListener(new View.OnClickListener()
-            {
-                @Override
-                public void onClick(View v)
+        if (mFinished > NO_FIVE) {
+            mHighFiveText.setText("High five dere har fått\n\n+ " + mFinished + " poeng\n\nFortsett med den gode jobben");
+            if (mFinished == HIGH_FIVE_CHECKLIST) {
+                mHighFiveButton.setText("Videre");
+                mHighFiveButton.setOnClickListener(new View.OnClickListener()
                 {
-                    sendToSupplering();
-                }
-            });
+                    @Override
+                    public void onClick(View v)
+                    {
+                        sendToSupplering();
+                    }
+                });
+            }
+            else {
+                mHighFiveButton.setText("Hovedmeny");
+                mHighFiveButton.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        sendToMainMenu();
+                    }
+                });
+            }
             // TODO: mHighFiveImage.setImageResource(R.drawable.
         }
         else {
@@ -60,6 +78,12 @@ public class HighFive extends Activity {
             });
             // TODO: mHighFiveImage.setImageResource(R.drawable.
         }
+    }
+
+    private void sendToMainMenu()
+    {
+        Intent intent = new Intent(this, MainMenu.class);
+        startActivity(intent);
     }
 
     private void sendToSupplering()
