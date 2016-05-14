@@ -2,12 +2,14 @@ package com.app.bc.bladansvarligapp;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -29,6 +31,8 @@ public class Rebus extends Activity {
     private int mProgressPercent;
     TextView mBokerSolgt;
     private float temp;
+    private Button mSvar;
+    private Button mRanking;
 
     // .CODE
     @Override
@@ -40,6 +44,8 @@ public class Rebus extends Activity {
         mProgress = (ProgressBar) findViewById(R.id.progressBar);
         mProgressText = (TextView) findViewById(R.id.progressPercentege);
         mBokerSolgt = (TextView) findViewById(R.id.boker);
+        mSvar = (Button) findViewById(R.id.btnToSvar);
+        mRanking = (Button) findViewById(R.id.btnToRanking);
 
         temp = ((mProgressStatus*100) / MAXBOKER);
         mProgressPercent = (int)temp;
@@ -53,8 +59,36 @@ public class Rebus extends Activity {
         public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
         }
         });
+        mSvar.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                sendToRebusSvar();
+            }
+        });
+        mRanking.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                sendToRanking();
+            }
+        });
     }
-
+    
+    private void sendToRebusSvar()
+    {
+        Intent intent = new Intent(this, RebusSvar.class);
+        startActivity(intent);
+    }
+    
+    private void sendToRanking()
+    {
+        Intent intent = new Intent(this, Ranking.class);
+        startActivity(intent);
+    }
+    
     public class ImageAdapter extends BaseAdapter {
         private Context mContext;
 

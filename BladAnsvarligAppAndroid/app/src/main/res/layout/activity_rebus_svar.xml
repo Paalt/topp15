@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Ranking"
-            android:id="@+id/button2"
+            android:id="@+id/btnToRanking"
             android:layout_marginRight="10dp" />
 
         <Button
@@ -96,7 +96,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Send"
-            android:id="@+id/button5"
+            android:id="@+id/btnSvar"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="25dp" />
 

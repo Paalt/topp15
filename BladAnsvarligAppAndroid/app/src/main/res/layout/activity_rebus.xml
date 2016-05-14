@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Ranking"
-            android:id="@+id/button2"
+            android:id="@+id/btnToRanking"
             android:layout_marginRight="10dp" />
 
         <Button
@@ -89,7 +89,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Send in svar →"
-        android:id="@+id/button7"
+        android:id="@+id/btnToSvar"
         android:layout_gravity="center_horizontal|center"
         android:layout_alignParentLeft="false"
         android:layout_marginLeft="0dp"

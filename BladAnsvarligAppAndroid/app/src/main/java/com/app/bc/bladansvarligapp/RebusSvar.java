@@ -2,11 +2,13 @@ package com.app.bc.bladansvarligapp;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 
@@ -14,23 +16,41 @@ import android.widget.ImageView;
  * Created by alkan on 2016/05/10.
  */
 public class RebusSvar extends Activity {
+    
+    private Button mSvar;
 
     // .CODE
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rebus_svar);
-
+    
         GridView gridview = (GridView) findViewById(R.id.gridView);
-
+        mSvar = (Button) findViewById(R.id.btnSvar); 
+    
         gridview.setAdapter(new ImageAdapter(this));
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-        public void onItemClick(AdapterView<?> parent, View v,
-                                int position, long id) {
-            //Toast.makeText(HelloGridView.this, "" + position,
-                    //Toast.LENGTH_SHORT).show();
-        }
-    });
+            public void onItemClick(AdapterView<?> parent, View v,
+                                    int position, long id) {
+                //Toast.makeText(HelloGridView.this, "" + position,
+                //Toast.LENGTH_SHORT).show();
+            }
+        });
+        mSvar.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                sendToHighFive();
+            }
+        });
+    }
+    
+    private void sendToHighFive()
+    {
+        Intent intent = new Intent(this, HighFive.class);
+        intent.putExtra(HighFive.POINTS, HighFive.HIGH_FIVE_REBUS);
+        startActivity(intent);
     }
 
     public class ImageAdapter extends BaseAdapter {
