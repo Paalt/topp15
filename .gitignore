@@ -7,9 +7,10 @@ build/
 *~
 *.iml
 .gradle
-/BladAsnsvarligAppAndroid/local.properties
-/BladAsnsvarligAppAndroid/.idea/workspace.xml
-/BladAsnsvarligAppAndroid/.idea/libraries
+/BladAnsvarligAppAndroid/local.properties
+/BladAnsvarligAppAndroid/.idea/workspace.xml
+/BladAnsvarligAppAndroid/.idea/libraries
 .DS_Store
-/BladAsnsvarligAppAndroid/build
-/BladAsnsvarligAppAndroid/captures
+/BladAnsvarligAppAndroid/build
+/BladAnsvarligAppAndroid/captures
+/BladAnsvarligAppAndroid/.idea/codeStyleSettings.xml

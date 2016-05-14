@@ -8,7 +8,7 @@ import android.widget.TextView;
 /**
  * Created by alkan on 2016/05/14.
  */
-public class PremieLister extends Activity {
+public class PremieDetaljer extends Activity {
 
         // .DATA?
         TextView premieBy;
@@ -20,7 +20,7 @@ public class PremieLister extends Activity {
         // .CODE
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_premielister);
+            setContentView(R.layout.activity_premie_detaljer);
 
             premieBy = (TextView) findViewById(R.id.premieby);
             premieFlag = (ImageView) findViewById(R.id.premieflag);
