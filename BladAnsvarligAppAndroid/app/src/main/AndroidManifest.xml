@@ -41,7 +41,7 @@
         <activity android:name=".Premier">
 
         </activity>
-        <activity android:name=".PremieLister">
+        <activity android:name=".PremieDetaljer">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
