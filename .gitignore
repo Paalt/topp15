@@ -13,3 +13,4 @@ build/
 .DS_Store
 /BladAsnsvarligAppAndroid/build
 /BladAsnsvarligAppAndroid/captures
+/BladAnsvarligAppAndroid/.idea/codeStyleSettings.xml
