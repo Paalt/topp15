@@ -22,7 +22,7 @@ import android.widget.TextView;
 public class Rebus extends Activity {
 
     // .DATA
-    private int mProgressStatus = 2000;
+    private int mProgressStatus = 547;
     private Handler mHandler = new Handler();
     private final int MAXBOKER = 2000;
 

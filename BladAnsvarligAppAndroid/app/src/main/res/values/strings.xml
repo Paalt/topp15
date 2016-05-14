@@ -25,4 +25,5 @@
     <string name="barcelona">Barcelona</string>
     <string name="stockholm">Stockholm</string>
     <string name="lillestrom">Lillestrøm</string>
+    <string name="ferdig">Trenger du supplering eller er du ferdig?</string>
 </resources>
