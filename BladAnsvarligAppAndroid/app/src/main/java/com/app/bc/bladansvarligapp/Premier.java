@@ -1,13 +1,10 @@
 package com.app.bc.bladansvarligapp;
 
 import android.app.Activity;
-import android.media.Image;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 /**
  * Created by alkan on 2016/05/14.
@@ -15,12 +12,12 @@ import org.w3c.dom.Text;
 public class Premier extends Activity{
 
     // .DATA
-    final int DUMMYPOENG = 500;
-    final int MAXPOENG = 300;
+    final int DUMMYBOKER = 1500;
+    final int MAXBOKER = 3000;
 
     // .DATA?
-    String poengString;
-    int poengProsent;
+    String bokerStrig;
+    int bokerProsent;
 
     ImageView barcelonaFlag;
     ImageView sverigeFlag;
@@ -42,31 +39,31 @@ public class Premier extends Activity{
         poeng = (TextView) findViewById(R.id.poeng);
         nestePremie = (TextView) findViewById(R.id.neste_premie);
 
-        poengString = "Poeng: " + DUMMYPOENG;
-        poeng.setText(poengString);
-        poengProsent = (DUMMYPOENG*100)/MAXPOENG;
+        bokerStrig = "Bøker solgt: " + DUMMYBOKER;
+        poeng.setText(bokerStrig);
+        bokerProsent = (DUMMYBOKER *100)/ MAXBOKER;
 
-        if (poengProsent > MAXPOENG)
-            poengProsent = MAXPOENG;
+        if (bokerProsent > MAXBOKER)
+            bokerProsent = MAXBOKER;
 
-        progressBar.setProgress(poengProsent);
+        progressBar.setProgress(bokerProsent);
 
-        poengString = "Neste premie låses opp ved 100 poeng";
-        if (DUMMYPOENG >= MAXPOENG/3)
+        bokerStrig = "Neste premie låses opp ved 1000 bøker solgt";
+        if (DUMMYBOKER >= MAXBOKER /3)
         {
             norgeFlag.setImageResource(R.drawable.norge_flag);
-            poengString = "Neste premie låses opp ved 200 poeng";
-            if (DUMMYPOENG >= (MAXPOENG/3)*2)
+            bokerStrig = "Neste premie låses opp ved 2000 bøker solgt";
+            if (DUMMYBOKER >= (MAXBOKER /3)*2)
             {
                 sverigeFlag.setImageResource(R.drawable.sverige_flag);
-                poengString = "Neste premie låses opp ved 300 poeng";
-                if (DUMMYPOENG >= MAXPOENG)
+                bokerStrig = "Neste premie låses opp ved 3000 bøker solgt";
+                if (DUMMYBOKER >= MAXBOKER)
                 {
                     barcelonaFlag.setImageResource(R.drawable.barcelona_flag);
-                    poengString = "Gratulerer, du er nå med i trekningen av alle premiene";
+                    bokerStrig = "Gratulerer, du er nå med i trekningen av alle premiene";
                 }
             }
         }
-        nestePremie.setText(poengString);
+        nestePremie.setText(bokerStrig);
     }
 }

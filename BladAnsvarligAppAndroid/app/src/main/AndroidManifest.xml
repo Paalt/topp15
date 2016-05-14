@@ -39,6 +39,9 @@
 
         </activity>
         <activity android:name=".Premier">
+
+        </activity>
+        <activity android:name=".PremieLister">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
