@@ -51,7 +51,11 @@ public class Checklist extends Activity{
             {
                 // TODO check if tasks are done and handle if not
                 // if tasks done, high five, else no five;
-                sendToHighFive(HighFive.HIGH_FIVE_CHECKLIST);
+                int points = HighFive.HIGH_FIVE_CHECKLIST;
+                for (MakeItShine shine : shineList)
+                    if (!shine.isSelected())
+                        points = HighFive.NO_FIVE;
+                sendToHighFive(points);
             }
         });
 
