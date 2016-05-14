@@ -30,18 +30,21 @@ public class PremieLister extends Activity {
 
             if (false)
             {
+                // Første premie
                 premieBy.setText(R.string.barcelona);
                 premieFlag.setImageResource(R.drawable.barcelona_flag);
                 premieBildet.setImageResource(R.drawable.barcelona);
                 premieText.setText(R.string.forste_premie);
                 premieKrav.setText(R.string.krav1);
             } else if (false) {
+                // Andre premie
                 premieBy.setText(R.string.stockholm);
                 premieFlag.setImageResource(R.drawable.sverige_flag);
                 premieBildet.setImageResource(R.drawable.stockholm);
                 premieText.setText(R.string.andre_premie);
                 premieKrav.setText(R.string.krav2);
             } else {
+                // Tredje premie
                 premieBy.setText(R.string.lillestrom);
                 premieFlag.setImageResource(R.drawable.norge_flag);
                 premieBildet.setImageResource(R.drawable.lilestrom);

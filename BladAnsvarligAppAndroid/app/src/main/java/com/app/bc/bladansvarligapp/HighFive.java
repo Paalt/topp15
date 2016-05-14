@@ -40,6 +40,7 @@ public class HighFive extends Activity {
         mFinished = intent.getIntExtra(POINTS, NO_FIVE);
 
         if (mFinished > NO_FIVE) {
+            mHighFiveImage.setImageResource(R.drawable.high_five);
             mHighFiveText.setText("High five dere har fått\n\n+ " + mFinished + " poeng\n\nFortsett med den gode jobben");
             if (mFinished == HIGH_FIVE_CHECKLIST) {
                 mHighFiveButton.setText("Videre");
@@ -63,9 +64,9 @@ public class HighFive extends Activity {
                     }
                 });
             }
-            // TODO: mHighFiveImage.setImageResource(R.drawable.
         }
         else {
+            mHighFiveImage.setImageResource(R.drawable.no_five);
             mHighFiveText.setText("Har du tenkt å gå videre?\n\nDu har ikke fullført listen\n\nVennligst gå tilbake");
             mHighFiveButton.setText("Tilbake");
             mHighFiveButton.setOnClickListener(new View.OnClickListener()
@@ -76,7 +77,6 @@ public class HighFive extends Activity {
                     sendToChecklist();
                 }
             });
-            // TODO: mHighFiveImage.setImageResource(R.drawable.
         }
     }
 

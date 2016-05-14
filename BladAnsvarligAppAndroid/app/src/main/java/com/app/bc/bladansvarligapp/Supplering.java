@@ -83,9 +83,35 @@ public class Supplering extends Activity{
 
     private void DisplayListView(){
         books = new ArrayList<>();
-        Books book = new Books("dummy");
+        Books book = new Books("Løvetemmeren");
         books.add(book);
-        book = new Books("Another dummy");
+        book = new Books("Nullpunktet");
+        books.add(book);
+        book = new Books("Piken på toget");
+        books.add(book);
+        book = new Books("Pengemannen");
+        books.add(book);
+        book = new Books("Den sjette mannen");
+        books.add(book);
+        book = new Books("Bare et barn");
+        books.add(book);
+        book = new Books("Store hvite løgner");
+        books.add(book);
+        book = new Books("Italienske netter");
+        books.add(book);
+        book = new Books("Vi er ikke alene");
+        books.add(book);
+        book = new Books("Den dagen du kom tilbake");
+        books.add(book);
+        book = new Books("Drapslisten");
+        books.add(book);
+        book = new Books("Britt-marie var her");
+        books.add(book);
+        book = new Books("De syv søstre");
+        books.add(book);
+        book = new Books("Savner deg");
+        books.add(book);
+        book = new Books("Blod på snø");
         books.add(book);
 
         dataAdapter = new MyCustomAdapter(this, R.layout.activity_supplering, books);

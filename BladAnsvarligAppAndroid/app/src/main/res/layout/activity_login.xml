@@ -34,7 +34,7 @@
                 android:layout_width="157dp"
                 android:layout_height="125dp"
                 android:id="@+id/logo"
-                android:src="@drawable/mb2"
+                android:src="@drawable/mb"
                 android:layout_gravity="center_horizontal" />
 
             <android.support.design.widget.TextInputLayout

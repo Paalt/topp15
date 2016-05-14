@@ -3,6 +3,7 @@ package com.app.bc.bladansvarligapp;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -21,7 +22,7 @@ import android.widget.TextView;
 public class Rebus extends Activity {
 
     // .DATA
-    private int mProgressStatus = 547;
+    private int mProgressStatus = 2000;
     private Handler mHandler = new Handler();
     private final int MAXBOKER = 2000;
 
@@ -94,6 +95,7 @@ public class Rebus extends Activity {
 
         public ImageAdapter(Context c) {
             mContext = c;
+            populateInteger();
         }
 
         public int getCount() {
@@ -120,15 +122,29 @@ public class Rebus extends Activity {
             } else {
                 imageView = (ImageView) convertView;
             }
-
+            if (position == 0 || position == 3)
+                imageView.setBackgroundColor(Color.parseColor("#446CB3"));
+            else
+                imageView.setBackgroundColor(Color.parseColor("#DB455E"));
             imageView.setImageResource(mThumbIds[position]);
             return imageView;
         }
 
         // references to our images
         private Integer[] mThumbIds = {
-            R.drawable.blue_cirlce, R.drawable.red_circle,
-            R.drawable.high_five, R.drawable.no_five
+            R.drawable.rebus_en, R.drawable.rebus_to,
+            R.drawable.rebus_tre, R.drawable.rebus_fire
         };
+
+        private void populateInteger (){
+        if (MAXBOKER / 4 > mProgressStatus)
+            mThumbIds[0] = R.drawable.las;
+        if (MAXBOKER / 2 > mProgressStatus)
+            mThumbIds[1] = R.drawable.las;
+        if ((MAXBOKER * 3) / 4 > mProgressStatus)
+            mThumbIds[2] = R.drawable.las;
+        if (MAXBOKER > mProgressStatus)
+            mThumbIds[3] = R.drawable.las;
+        }
     }
 }

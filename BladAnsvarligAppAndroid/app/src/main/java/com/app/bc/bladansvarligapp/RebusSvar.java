@@ -3,12 +3,14 @@ package com.app.bc.bladansvarligapp;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
 
@@ -16,18 +18,24 @@ import android.widget.ImageView;
  * Created by alkan on 2016/05/10.
  */
 public class RebusSvar extends Activity {
-    
+
+    // .DATA
+    int dummySolgt = 547;
+    int dummyMax = 2000;
+
+    // .DATA?
     private Button mSvar;
+    EditText mEditText;
 
     // .CODE
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rebus_svar);
-    
+
         GridView gridview = (GridView) findViewById(R.id.gridView);
-        mSvar = (Button) findViewById(R.id.btnSvar); 
-    
+        mSvar = (Button) findViewById(R.id.btnSvar);
+
         gridview.setAdapter(new ImageAdapter(this));
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
@@ -41,11 +49,13 @@ public class RebusSvar extends Activity {
             @Override
             public void onClick(View v)
             {
-                sendToHighFive();
+                if (mEditText.getText().toString().equalsIgnoreCase("regnvåte"))
+                    sendToHighFive();
+                //TODO Send til no five
             }
         });
     }
-    
+
     private void sendToHighFive()
     {
         Intent intent = new Intent(this, HighFive.class);
@@ -58,6 +68,7 @@ public class RebusSvar extends Activity {
 
         public ImageAdapter(Context c) {
             mContext = c;
+            populateInteger();
         }
 
         public int getCount() {
@@ -84,15 +95,28 @@ public class RebusSvar extends Activity {
             } else {
                 imageView = (ImageView) convertView;
             }
-
+            if (position == 0 || position == 3)
+                imageView.setBackgroundColor(Color.parseColor("#446CB3"));
+            else
+                imageView.setBackgroundColor(Color.parseColor("#DB455E"));
             imageView.setImageResource(mThumbIds[position]);
             return imageView;
         }
 
         // references to our images
         private Integer[] mThumbIds = {
-            R.drawable.blue_cirlce, R.drawable.red_circle,
-            R.drawable.high_five, R.drawable.no_five
+            R.drawable.rebus_en, R.drawable.rebus_to,
+            R.drawable.rebus_tre, R.drawable.rebus_fire
         };
+        private void populateInteger (){
+        if (dummyMax / 4 > dummySolgt)
+            mThumbIds[0] = R.drawable.las;
+        if (dummyMax / 2 > dummySolgt)
+            mThumbIds[1] = R.drawable.las;
+        if ((dummyMax * 3) / 4 > dummySolgt)
+            mThumbIds[2] = R.drawable.las;
+        if (dummyMax > dummySolgt)
+            mThumbIds[3] = R.drawable.las;
+        }
     }
 }
