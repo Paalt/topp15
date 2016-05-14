@@ -1,10 +1,16 @@
 package com.app.bc.bladansvarligapp;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by alkan on 2016/05/14.
@@ -22,6 +28,7 @@ public class Premier extends Activity{
     ImageView barcelonaFlag;
     ImageView sverigeFlag;
     ImageView norgeFlag;
+    List<LinearLayout> mPremieListe = new ArrayList<>();
     ProgressBar progressBar;
     TextView poeng;
     TextView nestePremie;
@@ -38,6 +45,9 @@ public class Premier extends Activity{
         progressBar = (ProgressBar) findViewById(R.id.poengProgress);
         poeng = (TextView) findViewById(R.id.poeng);
         nestePremie = (TextView) findViewById(R.id.neste_premie);
+        mPremieListe.add((LinearLayout) findViewById(R.id.barcelona));
+        mPremieListe.add((LinearLayout) findViewById(R.id.svinesund));
+        mPremieListe.add((LinearLayout) findViewById(R.id.lillestrøm));
 
         bokerStrig = "Bøker solgt: " + DUMMYBOKER;
         poeng.setText(bokerStrig);
@@ -47,6 +57,18 @@ public class Premier extends Activity{
             bokerProsent = MAXBOKER;
 
         progressBar.setProgress(bokerProsent);
+        int i = 0;
+        for (LinearLayout premie : mPremieListe)
+        {
+            final int finalI = ++i;
+            premie.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {sendToPremieDetaljer(finalI);
+                }
+            });
+        }
 
         bokerStrig = "Neste premie låses opp ved 1000 bøker solgt";
         if (DUMMYBOKER >= MAXBOKER /3)
@@ -65,5 +87,12 @@ public class Premier extends Activity{
             }
         }
         nestePremie.setText(bokerStrig);
+    }
+    
+    private void sendToPremieDetaljer(int rang)
+    {
+        Intent intent = new Intent(this, PremieDetaljer.class);
+        intent.putExtra("premie", rang);
+        startActivity(intent);
     }
 }

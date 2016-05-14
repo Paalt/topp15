@@ -27,14 +27,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Rebus"
-            android:id="@+id/button3" />
+            android:id="@+id/btnToRebus" />
 
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Total mål"
-            android:id="@+id/button4"
+            android:id="@+id/btnToPremier"
             android:layout_marginLeft="10dp" />
     </LinearLayout>
 
@@ -84,6 +84,7 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:id="@+id/barcelona"
             android:layout_gravity="center_horizontal"
             android:layout_weight="1">
 
@@ -92,7 +93,6 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="1"
-                android:id="@+id/premie1"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="10dp" />
 
@@ -101,7 +101,6 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Barcelona"
-                android:id="@+id/barcelona"
                 android:layout_gravity="center"
                 android:layout_marginLeft="100dp" />
 
@@ -117,6 +116,7 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:id="@+id/svinesund"
             android:layout_gravity="center_horizontal"
             android:layout_weight="1">
             <TextView
@@ -124,7 +124,6 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="2"
-                android:id="@+id/premie2"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="10dp" />
 
@@ -133,7 +132,6 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Svinesund"
-                android:id="@+id/svinesund"
                 android:layout_gravity="center"
                 android:layout_marginLeft="100dp" />
 
@@ -149,6 +147,7 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:id="@+id/lillestrøm"
             android:layout_gravity="center_horizontal"
             android:layout_weight="1">
             <TextView
@@ -156,7 +155,6 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="3"
-                android:id="@+id/premie3"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="10dp" />
 
@@ -165,7 +163,6 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Lillestrøm"
-                android:id="@+id/lillestrøm"
                 android:layout_gravity="center"
                 android:layout_marginLeft="100dp" />
 

@@ -24,14 +24,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Rebus"
-            android:id="@+id/button3" />
+            android:id="@+id/btnToRebus" />
 
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Total mål"
-            android:id="@+id/button4"
+            android:id="@+id/btnToPremier"
             android:layout_marginLeft="10dp" />
     </LinearLayout>
 
