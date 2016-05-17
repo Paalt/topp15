@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Ranking"
-            android:id="@+id/button2"
+            android:id="@+id/btnToRanking"
             android:layout_marginRight="10dp" />
 
         <Button

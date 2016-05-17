@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -32,6 +33,8 @@ public class Premier extends Activity{
     ProgressBar progressBar;
     TextView poeng;
     TextView nestePremie;
+    private Button mRebus;
+    private Button mRanking;
 
      // .CODE
     @Override
@@ -48,6 +51,8 @@ public class Premier extends Activity{
         mPremieListe.add((LinearLayout) findViewById(R.id.barcelona));
         mPremieListe.add((LinearLayout) findViewById(R.id.svinesund));
         mPremieListe.add((LinearLayout) findViewById(R.id.lillestrøm));
+        mRebus = (Button) findViewById(R.id.btnToRebus);
+        mRanking = (Button) findViewById(R.id.btnToRanking);
 
         bokerStrig = "Bøker solgt: " + DUMMYBOKER;
         poeng.setText(bokerStrig);
@@ -69,6 +74,20 @@ public class Premier extends Activity{
                 }
             });
         }
+        mRebus.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {sendToRebus();
+            }
+        });
+        mRanking.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {sendToRanking();
+            }
+        });
 
         bokerStrig = "Neste premie låses opp ved 1000 bøker solgt";
         if (DUMMYBOKER >= MAXBOKER /3)
@@ -93,6 +112,18 @@ public class Premier extends Activity{
     {
         Intent intent = new Intent(this, PremieDetaljer.class);
         intent.putExtra("premie", rang);
+        startActivity(intent);
+    }
+    
+    private void sendToRanking()
+    {
+        Intent intent = new Intent(this, Ranking.class);
+        startActivity(intent);
+    }
+    
+    private void sendToRebus()
+    {
+        Intent intent = new Intent(this, Rebus.class);
         startActivity(intent);
     }
 }

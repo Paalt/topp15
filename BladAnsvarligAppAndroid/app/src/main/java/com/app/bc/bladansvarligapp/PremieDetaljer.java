@@ -1,6 +1,7 @@
 package com.app.bc.bladansvarligapp;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -27,8 +28,11 @@ public class PremieDetaljer extends Activity {
             premieBildet = (ImageView) findViewById(R.id.premiebildet);
             premieText = (TextView) findViewById(R.id.premiestring);
             premieKrav = (TextView) findViewById(R.id.premiekrav);
+    
+            Intent intent = getIntent();
+            int premie = intent.getIntExtra("premie", 3);
 
-            if (false)
+            if (premie == 1)
             {
                 // Første premie
                 premieBy.setText(R.string.barcelona);
@@ -36,7 +40,7 @@ public class PremieDetaljer extends Activity {
                 premieBildet.setImageResource(R.drawable.barcelona);
                 premieText.setText(R.string.forste_premie);
                 premieKrav.setText(R.string.krav1);
-            } else if (false) {
+            } else if (premie == 2) {
                 // Andre premie
                 premieBy.setText(R.string.stockholm);
                 premieFlag.setImageResource(R.drawable.sverige_flag);

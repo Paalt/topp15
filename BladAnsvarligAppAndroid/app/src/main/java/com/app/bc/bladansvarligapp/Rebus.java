@@ -34,6 +34,7 @@ public class Rebus extends Activity {
     private float temp;
     private Button mSvar;
     private Button mRanking;
+    private Button mPremier;
 
     // .CODE
     @Override
@@ -47,6 +48,7 @@ public class Rebus extends Activity {
         mBokerSolgt = (TextView) findViewById(R.id.boker);
         mSvar = (Button) findViewById(R.id.btnToSvar);
         mRanking = (Button) findViewById(R.id.btnToRanking);
+        mPremier = (Button) findViewById(R.id.btnToPremier);
 
         temp = ((mProgressStatus*100) / MAXBOKER);
         mProgressPercent = (int)temp;
@@ -76,6 +78,14 @@ public class Rebus extends Activity {
                 sendToRanking();
             }
         });
+        mPremier.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                sendToPremier();
+            }
+        });
     }
     
     private void sendToRebusSvar()
@@ -87,6 +97,12 @@ public class Rebus extends Activity {
     private void sendToRanking()
     {
         Intent intent = new Intent(this, Ranking.class);
+        startActivity(intent);
+    }
+    
+    private void sendToPremier()
+    {
+        Intent intent = new Intent(this, Premier.class);
         startActivity(intent);
     }
     
