@@ -49,17 +49,19 @@ public class RebusSvar extends Activity {
             @Override
             public void onClick(View v)
             {
-                if (mEditText.getText().toString().equalsIgnoreCase("regnvåte"))
-                    sendToHighFive();
+                if (mEditText.getText().toString().equalsIgnoreCase("regnvate"))
+                    sendToHighFive(HighFive.HIGH_FIVE_REBUS);
+                else 
+                    sendToHighFive(HighFive.NO_FIVE);
                 //TODO Send til no five
             }
         });
     }
 
-    private void sendToHighFive()
+    private void sendToHighFive(int points)
     {
         Intent intent = new Intent(this, HighFive.class);
-        intent.putExtra(HighFive.POINTS, HighFive.HIGH_FIVE_REBUS);
+        intent.putExtra(HighFive.POINTS, points);
         startActivity(intent);
     }
 
