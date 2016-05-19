@@ -35,6 +35,7 @@ public class RebusSvar extends Activity {
 
         GridView gridview = (GridView) findViewById(R.id.gridView);
         mSvar = (Button) findViewById(R.id.btnSvar);
+        mEditText = (EditText) findViewById(R.id.editText2);
 
         gridview.setAdapter(new ImageAdapter(this));
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
