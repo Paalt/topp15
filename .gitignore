@@ -12,3 +12,12 @@ build/
 *.org
 ~*
 *~
+*.iml
+.gradle
+/BladAnsvarligAppAndroid/local.properties
+/BladAnsvarligAppAndroid/.idea/workspace.xml
+/BladAnsvarligAppAndroid/.idea/libraries
+.DS_Store
+/BladAnsvarligAppAndroid/build
+/BladAnsvarligAppAndroid/captures
+/BladAnsvarligAppAndroid/.idea/codeStyleSettings.xml

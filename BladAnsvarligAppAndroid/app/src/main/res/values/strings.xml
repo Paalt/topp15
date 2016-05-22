@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Blad Ansvarlig App</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Butikk ID</string>
+    <string name="prompt_password">Passord</string>
+    <string name="action_sign_in">Log in</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="motivasjon">Dere holder på å nå målet!</string>
+    <string name="ikke_ferdig">Har du tenkt deg videre?\n\nDu har ikke fullført listen\n\nVennligst gå tilbake</string>
+    <string name="beskrivelse_premier">Alle butikker er med i trekkningen av 1. premien.\nDen som leder har større sjangse til å vinne.\n\nStå på så kan dere nå målet!</string>
+    <string name="tredje_premie">Lillestrøm består for en stor del av småhusbebyggelse og fremstår som en typisk hageby. Nitelva utgjør en naturlig grense mot rælingen.\nByen ligger 13 km øst for Oslos grense og ca. 18 km fra Oslo sentrum. Lillestrøm grenser mot leirsund, Strømmen, Skjetten, Rælingen, Fet og Kjeller. Statistisk sentralbyrå regner Lillestrøm som en del av tettstedet Oslo, som igjen er en del av Stor-Osloregionen.</string>
+    <string name="andre_premie">Stockholm by omfatter til sammen 19 øyer og holmer (bl.a. Stadsholmen, det vil si \"Gamla Stan\" eller Staden mellam broarna) og fastlandsområdet på nord+ og sørsiden av mälar-utløpet (\"Malmarna\", Djurgården og Gärdet).\nYtterligere tre øyer ligger i Drevviken, men denne ligger bare delvis innenfor Stockholm kommunes grenser.\nStockholms skjærgård består av ca. 30 000 øyer, holmer og skjærer</string>
+    <string name="forste_premie">Havnebyen Barcelona er Spanias nest største by samt hovedstad og kulturelt sentrum i den selvstyrte regionen Catalonia. Barcelona ligger nordøst i landet ved Middelhavskysten\nBarcelona har 1,6 millioner innbyggere (2012), mens metropolområdet har et folketall på bortimot 5 milioner. Byen ligger omlag 140 kn sør for grensen til Frankrike samt fjellkjeden Pyreneene.</string>
+    <string name="krav1">Selge 3000 bøker</string>
+    <string name="krav2">Selge 2000 bøker</string>
+    <string name="krav3">Selge 1000 bøker</string>
+    <string name="barcelona">Barcelona</string>
+    <string name="stockholm">Stockholm</string>
+    <string name="lillestrom">Lillestrøm</string>
+    <string name="ferdig">Trenger du supplering eller er du ferdig?</string>
+</resources>
