@@ -1,0 +1,28 @@
+<md-dialog>
+    
+    <md-toolbar layout="row">
+    	<div flex="grow" class="md-toolbar-tools">Meld deg på vårt nyhetsbrev</div>
+        <md-button flex="initial" class="md-icon-button" aria-label="Lukk" ng-click="newsletterForm.close()">
+        	<md-icon md-svg-icon="close-circle" class="icon--size-18"></md-icon>
+        </md-button>
+    </md-toolbar>
+    
+    <md-dialog-content layout-padding>
+    	<form>
+            <label class="newsletter__label">
+            <div layout="row" layout-align="center center">
+            	<div flex="80">
+                	<input type="text" placeholder="Din e-post...">
+                </div>
+                <div class="newsletter__button-container" flex="20">
+                	<button class="newsletter__button" type="submit" ng-click="newsletterForm.submit()">
+                        <md-icon md-svg-icon="email" class="icon--size-18"></md-icon>
+                    </button>
+                </div>
+            </div>
+            	                
+            </label>     
+        </form>
+    </md-dialog-content>
+
+</md-dialog>

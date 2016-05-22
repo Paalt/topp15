@@ -1,8 +1,28 @@
+/*------------------------------------*\
+		#ICONS-GENERAL
+\*------------------------------------*/
+
 // Rules for sizing the icon.
-.material-icons.md-18 { font-size: 18px; }
-.material-icons.md-24 { font-size: 24px; }
-.material-icons.md-36 { font-size: 36px; }
-.material-icons.md-48 { font-size: 48px; }
+.icon--size-18 {
+	height: 18px;
+	width: 18px;
+}
+
+.icon--size-24 {
+	height: 24px;
+	width: 24px;
+}
+
+.icon--size-36 {
+	height: 36px;
+	width: 36px;
+}
+
+.icon--size-48 {
+	height: 48px;
+	width: 48px;
+}
+
 
 // Rules for using icons as black on a light background.
 .material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
@@ -15,3 +35,29 @@
 //Custom colors
 .material-icons.orange600 { color: #FB8C00; }
 
+
+/*------------------------------------*\
+		#ICONS
+\*------------------------------------*/
+
+.md-button.md-accent.md-fab:not([disabled]) md-icon.sticky-menu {
+	color: $primary;
+}
+
+.facebook {
+	color: $accent;
+    border-radius: 50%;
+    background-color: $primary;
+}
+
+.carousel__left-controller {
+	 @include rotate(-90);
+}
+
+.carousel__right-controller {
+	 @include rotate(90);
+}
+
+.ranking-list-news__star-icon {
+	margin: 1rem 0.2rem 1rem 0.2rem;
+}	

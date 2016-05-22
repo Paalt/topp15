@@ -1,4 +1,15 @@
 /*------------------------------------*\
+		#HEADER
+\*------------------------------------*/
+
+.top-bar {
+	background-color: $background-color-menu;
+	position: fixed;
+	z-index: 100;
+	width: 100%;
+}
+
+/*------------------------------------*\
 		#HEADER-SITE-BRANDING
 \*------------------------------------*/
 
@@ -34,6 +45,7 @@
 
 .page-header {
 	position: relative;
+	padding-top: 75px;
 }
 
 .page-header__background {
@@ -44,7 +56,7 @@
 
 .page-header__background--transparent {
 	height: 100%;
-	background-color: rgba(0, 0, 0, 0.75);
+	background-color: rgba(242, 242, 242, 0.9);
 	position: relative;
 }
 
@@ -74,8 +86,15 @@
 .page-header__newsletter {
 	text-align: center;
 	background-color: rgba(255, 255, 255, 0.75);
-	position: absolute;
-	bottom: 175px;
 	width: 100%;
-	padding-bottom: 1em;
+	padding: 2rem;
+}
+
+/*------------------------------------*\
+		#HEADER-NAVIGATION
+\*------------------------------------*/
+
+.page-header__navigation {
+	padding: 0 1em 0 1em;
+	background-color: $background-color-head;
 }

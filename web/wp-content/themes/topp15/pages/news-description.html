@@ -1,0 +1,14 @@
+<md-dialog>
+    
+    <md-toolbar layout="row">
+    	<div flex="grow" class="md-toolbar-tools">Beskrivelse</div>
+        <md-button flex="initial" class="md-icon-button" aria-label="Lukk" ng-click="newsDescription.close()">
+        	<md-icon md-svg-icon="close-circle" class="icon--size-18"></md-icon>
+        </md-button>
+    </md-toolbar>
+    
+    <md-dialog-content layout-padding>
+    	<p ng-bind-html="newsDescription.description"></p>
+    </md-dialog-content>
+
+</md-dialog>

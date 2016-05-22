@@ -1,7 +1,51 @@
-<ul>
-	<li ng-repeat="post in posts">
-		<a ng-href="book/{{post.id}}">
-			{{post.title.rendered}}
-		</a>
-	</li>
-</ul>
+<nav class="page-header__navigation" layout="row" layout-align="start center">
+        
+    <h1 class="gamma page-title" flex="10">
+    	Topp 15
+        <span id="topp15"></span>
+    </h1>
+    
+    <nav-secondary cat-topp15-id="catCtrl.catTopp15Id" section="topp15" flex="grow"></nav-secondary>
+
+</nav>
+
+
+<section class="ranking-list-topp15" layout="row" layout-wrap>
+	
+	<article ng-cloak flex="20" ng-repeat="book in topp15List | orderBy: 'Rank' | filter: {'Topp15-sjanger': catCtrl.catTopp15Id}">
+    	<a ng-href="#" ng-click="showDetails($event, book.id, 'topp15')">
+    		<topp15-list class="ranking-list-topp15__table-row" rank="{{book.Rank}}" cover-image="{{book.featured_media}}" layout="row" layout-align="center-top"></topp15-list>
+        </a>
+    </article>
+
+</section>
+
+<nav class="page-header__navigation" layout="row" layout-align="start center">
+    
+    <h2 class="gamma page-title" flex="10">
+        <span id="nyheter"></span>
+        Nyheter
+    </h2>
+    
+    <nav-secondary cat-news-id="catCtrl.catNewsId" section="news" flex="grow"></nav-secondary>
+   
+</nav>
+
+<section class="ranking-list-topp15">
+	
+	<news-carousel cat-news-id="catCtrl.catNewsId"></news-carousel>
+
+</section>
+
+<div class="page-header__navigation" layout="row" layout-align="start center">
+    <h2 class="gamma page-title" flex="10">
+    	<span id="barneboker"></span>
+    	Barnebøker
+    </h2>
+</div>
+
+<section class="ranking-list-topp15" layout="row" layout-wrap>
+	
+    <children-books></children-books>
+    
+</section>

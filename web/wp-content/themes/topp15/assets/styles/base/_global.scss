@@ -4,7 +4,7 @@
 
 body {
    @include main-font(300); 
-   background-color: $background-color;
+   background-color: $background-color-main;
 }
 
 .hyphenate {
@@ -20,7 +20,7 @@ p + p {
    text-indent: 1.5em  /* I like to keep the indentation length equal to the line height. */
 }
 
-h1 + p:first-letter { 
+h2 + p:first-letter { 
    font-size: 2em;
    line-height: 0;  /* The line-height must be adjusted to compensate for the increased font size, otherwise the leading for the overall line is disrupted. I find that any values below 0.4 work. */
 }
@@ -46,7 +46,7 @@ ul {
 \*------------------------------------*/
 
 a {
-	color: $font-color;
+	color: $link-color;
 	text-decoration: none;
 	
 	&:hover {
@@ -65,11 +65,14 @@ a {
 label {}
 
 input[type="text"] {
-	width: 300px;
+	width: 230px;
 	height: 35px;
 	background-color: $accent;
-	border: 1px solid $border;
-	border-radius: 20px;
+	border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom: 1px solid #D4D4D4;
+    border-left: 1px solid #D4D4D4;
+    border-top: 1px solid #D4D4D4;
 	padding: 2px 0px 2px 15px;
 }
 

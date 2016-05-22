@@ -1,5 +1,5 @@
 //Fonts
-$main-font: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+$main-font: "acumin-pro", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 
 // Glyphicons font path
 $icon-font-path:        "../fonts/";
@@ -9,12 +9,15 @@ $main-sm-columns :      12;
 $sidebar-sm-columns :    4;
 
 // Colors
-$primary :          #F7931E;
-$accent :           #F7F7F7;
-$warn :             #F44336;
-$font-color : 	    #0F0F0F;
-$border : 		    #D4D4D4;
-$background-color : #FEFEFE;
+$primary :          	 #F7931E;
+$accent :           	 #F7F7F7;
+$warn :             	 #F44336;
+$font-color : 	    	 #0F0F0F;
+$link-color :            #F0F0F0;
+$border : 		    	 #D4D4D4;
+$background-color-menu : rgba(15, 15, 15, 0.7);
+$background-color-head : #FEFEFE;
+$background-color-main : #F7F7F7;
 
 //Media Queries - Breakpoints
 $small-screen : '(min-width: 320px)';

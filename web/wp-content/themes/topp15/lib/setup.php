@@ -132,34 +132,20 @@ function register_custom_post_types() {
 		'not_found'	      		=>	'Ingen nyheter funnet',
 		'not_found_in_trash'  =>	'Ingen nyheter funnet i søppelkurven'
 	),
-	'supports'			=>	array( 'title', 'editor', 'author', 'revisions' ),
-	'menu_position'	=>	5,
-	'public'				=>	true,
-	'hierarchical' => true,
-	'taxonomies' => array( 'post_tag', 'category' )
-));
+		'supports'			=>	array( 'title', 'editor', 'author', 'revisions', 'thumbnail', 'custom-fields' ),
+		'menu_position'	=>	5,
+		'public'				=>	true,
+		'publicly_queryable' => true,
+		'show_ui'            => true,
+		'show_in_menu'       => true,
+		'show_in_rest'       => true,
+		'query_var'          => true,
+		'capability_type'    => 'post',
+		'hierarchical' => true,
+		'taxonomies' => array( 'post_tag', 'category', 'nyheter_sjanger' )
+	));
 
-register_post_type( 'Nyheter', array(
-  		'labels'	=>	array(
-		'all_items'           => 'Nyhet',
-		'menu_name'	      		=>	'Nyheter',
-		'singular_name'       =>	'Nyhet',
-		'edit_item'           =>	'Rediger nyhet',
-		'new_item'            =>	'Ny nyhet',
-		'view_item'           =>	'Vis nyheter',
-		'items_archive'       =>	'Nyheter arkiv',
-		'search_items'        =>	'Søk i nyheter',
-		'not_found'	      		=>	'Ingen nyheter funnet',
-		'not_found_in_trash'  =>	'Ingen nyheter funnet i søppelkurven'
-	),
-	'supports'			=>	array( 'title', 'editor', 'author', 'revisions' ),
-	'menu_position'	=>	5,
-	'public'				=>	true,
-	'hierarchical' => true,
-	'taxonomies' => array( 'post_tag', 'category' )
-));
-
-register_post_type( 'Barneboker', array(
+	register_post_type( 'Barneboker', array(
   		'labels'	=>	array(
 		'all_items'           => 'Barnebok',
 		'menu_name'	      		=>	'Barnebøker',
@@ -172,14 +158,20 @@ register_post_type( 'Barneboker', array(
 		'not_found'	      		=>	'Ingen barnebøker funnet',
 		'not_found_in_trash'  =>	'Ingen barnebøker funnet i søppelkurven'
 	),
-	'supports'			=>	array( 'title', 'editor', 'author', 'revisions' ),
-	'menu_position'	=>	5,
-	'public'				=>	true,
-	'hierarchical' => true,
-	'taxonomies' => array( 'post_tag', 'category' )
-));
+		'supports'			=>	array( 'title', 'editor', 'author', 'revisions', 'thumbnail', 'custom-fields'),
+		'menu_position'	=>	5,
+		'public'				=>	true,
+		'publicly_queryable' => true,
+		'show_ui'            => true,
+		'show_in_menu'       => true,
+		'show_in_rest'       => true,
+		'query_var'          => true,
+		'capability_type'    => 'post',
+		'hierarchical' => true,
+		'taxonomies' => array( 'post_tag', 'category', 'barnebok_sjanger' )
+	));
 
-register_post_type( 'Topp15', array(
+	register_post_type( 'Topp15', array(
   		'labels'	=>	array(
 		'all_items'           => 'Topplistebok ',
 		'menu_name'	      	  =>	'Topp 15',
@@ -192,69 +184,95 @@ register_post_type( 'Topp15', array(
 		'not_found'	      		=>	'Ingen topplistebøker funnet',
 		'not_found_in_trash'  =>	'Ingen topplistebøker funnet i søppelkurven'
 	),
-	'supports'			=>	array( 'title', 'editor', 'author', 'revisions', 'thumbnail', 'custom-fields' ),
-	'menu_position'	=>	5,
-	'public'				=>	true,
-	'publicly_queryable' => true,
-	'show_ui'            => true,
-	'show_in_menu'       => true,
-	'show_in_rest'       => true,
-	'query_var'          => true,
-	'capability_type'    => 'post',
-	'hierarchical' => true,
-	'taxonomies' => array( 'post_tag', 'category' )
-));
+		'supports'			=>	array( 'title', 'editor', 'author', 'revisions', 'thumbnail', 'custom-fields' ),
+		'menu_position'	=>	5,
+		'public'				=>	true,
+		'publicly_queryable' => true,
+		'show_ui'            => true,
+		'show_in_menu'       => true,
+		'show_in_rest'       => true,
+		'query_var'          => true,
+		'capability_type'    => 'post',
+		'hierarchical' => true,
+		'taxonomies' => array( 'post_tag', 'category', 'topp15_sjanger' )
+	));
 }
 
 add_action( 'init', __NAMESPACE__ . '\\register_custom_post_types' );
 
-add_post_meta( 1, 'starship', 47 );
+add_action('rest_api_init', __NAMESPACE__ . '\\my_rest_api_init');
 
-/**
- * Add the field "spaceship" to REST API responses for posts read and write
- */
-add_action( 'rest_api_init', __NAMESPACE__ . '\\slug_register_spaceship' );
-function slug_register_spaceship() {
-    register_rest_field( 'post',
-        'starship',
-        array(
-            'get_callback'    => 'slug_get_spaceship',
-            'update_callback' => 'slug_update_spaceship',
-            'schema'          => null,
-        )
+  function my_rest_api_init()
+  {
+    // This is where we add the custom fields to the REST API
+    // More docs: http://v2.wp-api.org/extending/modifying/
+    $topp15Meta = array(
+      'Pris',
+      'Tittel',
+	  'Forfatter',
+	  'Rank'
     );
-}
-/**
- * Handler for getting custom field data.
- *
- * @since 0.1.0
- *
- * @param array $object The object from the response
- * @param string $field_name Name of field
- * @param WP_REST_Request $request Current request
- *
- * @return mixed
- */
-function slug_get_spaceship( $object, $field_name, $request ) {
-    return get_post_meta( $object[ 'id' ], $field_name );
-}
+	
+	$nyheterMeta = array(
+      'Pris',
+      'Tittel',
+	  'Forfatter',
+	  'Rank'
+    );
+	
+	$barnMeta = array(
+      'Pris',
+      'Tittel',
+	  'Forfatter',
+	  'Rank'
+    );
 
-/**
- * Handler for updating custom field data.
- *
- * @since 0.1.0
- *
- * @param mixed $value The value of the field
- * @param object $object The object from the response
- * @param string $field_name Name of field
- *
- * @return bool|int
- */
-function slug_update_spaceship( $value, $object, $field_name ) {
+    foreach ($topp15Meta as $meta_key)
+    {
+      register_api_field('topp15',
+      $meta_key,
+        array(
+          'get_callback' => __NAMESPACE__ . '\\get_registered_meta',
+          'update_callback' => __NAMESPACE__ . '\\update_registered_meta',
+          'schema' => null
+        )
+      );
+    }
+	
+	foreach ($nyheterMeta as $meta_key)
+    {
+      register_api_field('nyheter',
+      $meta_key,
+        array(
+          'get_callback' => __NAMESPACE__ . '\\get_registered_meta',
+          'update_callback' => __NAMESPACE__ . '\\update_registered_meta',
+          'schema' => null
+        )
+      );
+    }
+	
+	foreach ($barnMeta as $meta_key)
+    {
+      register_api_field('barneboker',
+      $meta_key,
+        array(
+          'get_callback' => __NAMESPACE__ . '\\get_registered_meta',
+          'update_callback' => __NAMESPACE__ . '\\update_registered_meta',
+          'schema' => null
+        )
+      );
+    }
+  }
+
+  function get_registered_meta( $object, $field_name, $request ) {
+    return get_post_meta( $object[ 'id' ], $field_name, true );
+  }
+
+  function update_registered_meta( $value, $object, $field_name ) {
     if ( ! $value || ! is_string( $value ) ) {
         return;
     }
-
     return update_post_meta( $object->ID, $field_name, strip_tags( $value ) );
-
 }
+
+?>

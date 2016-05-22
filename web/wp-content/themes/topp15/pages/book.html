@@ -1,2 +1,25 @@
-<h1>{{post.title.rendered}}</h1>
-{{post.content.rendered}}
+<md-dialog aria-label="Topp 15" ng-cloak>
+  <form>
+    <md-dialog-content>
+      <div class="md-dialog-content">
+      	
+      
+      	<section class="ranking-list-topp15__dialog">
+        	<aside style="opacity: 0;" class="ranking-list-topp15__dialog-image-container">
+            	 <img class="ranking-list-topp15__dialog-image" ng-src="{{media}}" alt="{{alt}}">
+            </aside>
+        	<article style="visibility: hidden;" class="ranking-list-topp15__dialog-content-container">
+            	<h2 class="ranking-list-topp15__dialog-heading">{{book.Tittel}}</h2>
+				<p ng-bind-html="book.content.rendered" class="ranking-list-topp15__dialog-content"></p>
+            </article>
+            <div class="ranking-list-topp15__dialog-close-button">
+                <a href="#" ng-click="cancel()">
+                	<md-icon md-svg-icon="close" class="icon--size-36"></md-icon>
+                </a>
+            </div>	
+        </section>
+      </div>
+    </md-dialog-content>
+    
+  </form>
+</md-dialog>

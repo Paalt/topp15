@@ -38,10 +38,13 @@ var grupper = [
 	new Gruppe (6,"Gruppe 0111", 11,"The binary group"),
 	new Gruppe (7,"Gruppe 8", 36,"")
 ]
-var id = Observable('');
+var id = Observable('HEI');
 getId = function(e)
 {
   id.value = e.data.body;
+  module.exports = {
+  	id: id.value
+  }
   console.log(id.value)
 }
 
@@ -53,6 +56,7 @@ module.exports = {
 };
 
 module.exports = {
+  id : id,
 	grupper: grupper,
   getId : getId,
   data : data

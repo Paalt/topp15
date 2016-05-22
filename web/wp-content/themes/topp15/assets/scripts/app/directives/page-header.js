@@ -8,7 +8,6 @@ angular.module('topp15')
 				
 				//Get media files
 				getMedia.single(15).success(function(res){
-					console.log(res);
 					scope.media = res;
 				});
 			}	
